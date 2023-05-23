@@ -12,6 +12,9 @@ The main purpose of this project is to streamline the process of finding and ret
 - Collect information about high-level board members.
 - Save the retrieved information to a list for further analysis.
 
+## FlowChart
+![Sales Navigator FlowChart](https://github.com/TrippingLettuce/linkedin_from_excel/assets/82426784/175ddef7-b2b4-4f54-a9a5-dadb2c32409e)
+
 ## Prerequisites
 Before running the script, ensure you have the following:
 
