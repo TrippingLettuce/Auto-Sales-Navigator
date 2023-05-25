@@ -1,7 +1,7 @@
 # ---------------------------------------------------------------------------------------------------------------- #
 ## Python default import packages.
 # Colorama module: pip install colorama
-# from colorama import init, Fore, Style  # Do not work on MacOS and Linux   ### Uncomment if you are using it.
+# from colorama import init, Fore, Style  # Do not work on MacOS and Linux   ### Uncomment if you are using
 
 # Python default import.
 from datetime import datetime as dt
@@ -42,8 +42,20 @@ driver.find_element(By.ID, 'password').send_keys('Canyon1949!')
 # ---------------------------------------------------------------------------------------------------------------- #
 # Sign in button click
 driver.find_element(By.XPATH, "//button[normalize-space()='Sign in']").click()    # Button Click
+<<<<<<< Updated upstream
 driver.find_element(By.LINK_TEXT, 'Sales Nav').send_keys(Keys.RETURN)             # Navigate Sales Nav Tap
 time.sleep(6)
+=======
+driver.find_element(By.PARTIAL_LINK_TEXT, 'Sales Nav').send_keys(Keys.RETURN)     # Navigate Sales Nav Tap
+
+# *----- Part where we have to make a list of a company and search people through
+driver.find_element(By.ID, 'global-typeahead-search-input').send_keys('lfsurf')
+time.sleep(10)
+# driver.find_element(By.PARTIAL_LINK_TEXT, 'Search').send_keys(Keys.RETURN)
+
+#driver.implicitly_wait(4)
+
+>>>>>>> Stashed changes
 # Close the browser window
 # driver.quit()
 
