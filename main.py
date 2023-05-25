@@ -65,8 +65,23 @@ for x in range(len(dfcompany)-1):
     temp_compamny = dfcompany[x+1]
     driver.find_element(By.ID, 'global-typeahead-search-input').send_keys(temp_compamny)   # Search bar click and type 
     driver.find_element(By.ID, 'global-typeahead-search-input').send_keys(Keys.ENTER) #Hit Enter instead of clicking search button
+    time.sleep(2)
+    element = driver.find_element_by_class_name('class="artdeco-entity-lockup__subtitle ember-view t-14"')
+    #I dont know what element will be equal too till we test
     
+    #COMPARE THE COMPANY NAME WITH THE ELEMENT
+    #IF TRUE
+        #ADD TO ARRAY
+        #Move on to next person
+    #IF FALSE
+        #Move on to next person
 
+    #IF NO PERSON FOUND
+        #WRITE TO CSV FILE
+    #IF PERSON FOUND BUT NOT FIT TITLE ADD IF LESS THAN 3
+        #ADD TO LIST
+    #IF PERSON FOUND GRATOR THEN 3 FILTER TITLE
+        #ADD TO LIST
 
 # ADD MORE (Look at prevoius CSV to find)
 # title_list = ['CEO', 'Co-Founder', 'Business Owner', 'Director Contract Manufacturing', 'Owner', 'COO', 'Principal Engineer', 'Founder', 'Sales Supervisor', 'Sales Closer', 'Sales Representative', 'Director of Operations', 'Principal', 'President of Operations', 'Chief Executive Officer', 'CTO', 'Business Development Lead', 'Marketing Executive', 'CEO', 'Chief Executive Officer', 'C.E.O.', 'Founder', 'Co-founder', 'Cofounder', 'Director of Development', 'Business Development', 'Retail', 'ecommerce', 'Digital Marketing', 'CMO', 'Chief Marketing Officer', 'CTO', 'Chief Technology Officer', 'Director of Marketing', 'Software', 'Fundraising', 'Partner', 'Donor', 'President', 'Owner', 'Partnership', 'Marketing manager']
