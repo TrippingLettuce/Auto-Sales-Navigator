@@ -2,5 +2,6 @@ pandas=2.0.1
 
 requests=2.26.0
 
-SQLAlchemy=2.0.15
+selenium=4.9.1
 
+webdriver-manager=3.8.6

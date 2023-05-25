@@ -1,5 +1,3 @@
-
-
 #Only works in Windoes 
 # Colorama module: pip install colorama
 from colorama import init, Fore, Style  # Do not work on MacOS and Linux.
@@ -22,6 +20,7 @@ import os
 
 # ADD MORE (Look at prevoius CSV to find)
 title_list = ['CEO','Co-Founder','Business Owner','Director Contract Manufacturing','Owner','COO','Principal Engineer','Founder','Sales Supervisor','Sales Closer','Sales Representative','Director of Operations','Principal','President of Operations','Chief Executive Officer','CTO','Business Development Lead','Marketing Executive']
+
 #Notes
 #Board Memeber or Software Dev if not allot of people
 
