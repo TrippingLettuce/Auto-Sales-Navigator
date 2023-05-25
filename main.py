@@ -1,31 +1,35 @@
 # ---------------------------------------------------------------------------------------------------------------- #
 ## Python default import packages.
+# Colorama module: pip install colorama
+from colorama import init, Fore, Style  # Do not work on MacOS and Linux.
+
+# Selenium module imports: pip install selenium
+from selenium import webdriver
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.support.ui import WebDriverWait as WDW
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+
+
+# Python default import.
 from datetime import datetime as dt
 from glob import glob
 import sys
 import os
-# ---------------------------------------------------------------------------------------------------------------- #
-## Applicable packages for automation
-from selenium import webdriver
-from webdriver_manager.chrome import ChromeDriverManager            # Download chrome automatically
+import time 
 
-from selenium.webdriver.common.by import By                         # By class are used to locate elements on a page
-from selenium.webdriver.common.keys import Keys
-# from selenium.webdriver.chrome.service import Service
-# ---------------------------------------------------------------------------------------------------------------- #
-## Path to Chrome WebDriver executable
-# s = Service('/usr/local/bin/chromedriver')
-# webdriver_path = '/usr/local/bin/chromedriver'                      ### Change the Path depends on the device
-
-# ---------------------------------------------------------------------------------------------------------------- #
+#----------------------------------------------------------------------------------------------- #
 ## Options for Chrome Browser
 options = webdriver.ChromeOptions()
 options.add_argument("--start-maximized")                           # Maximize the window tap
-
-
+options.add_argument('--ignore-certificate-errors')
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service as ChromeService
+from webdriver_manager.chrome import ChromeDriverManager
 # ---------------------------------------------------------------------------------------------------------------- #
 # Create a new instance of Chrome WebDriver
-driver = webdriver.Chrome(service=ChromeDriverManager().install(), options=options)        # Download automatically Chromedriver.
+driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
 # driver = webdriver.Chrome(webdriver_path, options=options)
 
 driver.get('https://www.linkedin.com/checkpoint/lg/sign-in-another-account')      # Go to LinkedIn website
@@ -33,17 +37,14 @@ driver.find_element(By.ID, 'username').send_keys('Noah.wolfe3@gcu.edu')         
 driver.find_element(By.ID, 'password').send_keys('Canyon1949!')
 
 driver.find_element(By.XPATH, "//button[normalize-space()='Sign in']").click()    # Button Click
-driver.implicitly_wait(4)
+#driver.implicitly_wait(4)
 driver.find_element(By.LINK_TEXT, 'Sales Nav').send_keys(Keys.RETURN)
-driver.implicitly_wait(4)
 
+#driver.implicitly_wait(4)
+time.sleep(6)
 # Close the browser window
 # driver.quit()
 
 
 # ADD MORE (Look at prevoius CSV to find)
 # title_list = ['CEO','Co-Founder','Business Owner','Director Contract Manufacturing','Owner','COO','Principal Engineer','Founder','Sales Supervisor','Sales Closer','Sales Representative','Director of Operations','Principal','President of Operations','Chief Executive Officer','CTO','Business Development Lead','Marketing Executive']
-
-
-
-
