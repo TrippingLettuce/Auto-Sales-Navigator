@@ -15,67 +15,85 @@ import numpy as np
 ## Applicable packages for automation
 # Selenium module imports: pip install selenium
 from selenium import webdriver
-from selenium.webdriver.firefox.service import Service as FirefoxService  # Change here
-from webdriver_manager.firefox import GeckoDriverManager  # Change here
+from selenium.webdriver.firefox.service import Service as FirefoxService           # Change here
+from webdriver_manager.firefox import GeckoDriverManager                           # Change here
 
-
+# Packages for web control
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait as WDW
-# from selenium.webdriver.firefox.service import Service  # Change here
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 
 # ---------------------------------------------------------------------------------------------------------------- #
 ## Options for Firefox Browser
 options = webdriver.FirefoxOptions()
-options.add_argument("--start-maximized")                                     # Maximize the window tap
-options.add_argument('--ignore-certificate-errors')
+options.accept_insecure_certs = True
+# options.add_argument('--started-maximized')
+# options.add_argument('--ignore-certificate-errors')
 
 # ---------------------------------------------------------------------------------------------------------------- #
-# Create a new instance of Firefox WebDriver
-driver = webdriver.Firefox(service=FirefoxService(GeckoDriverManager().install()), options=options)        # Change here
-driver.get('https://www.linkedin.com/checkpoint/lg/sign-in-another-account')      # Go to LinkedIn website
-driver.find_element(By.ID, 'username').send_keys('Noah.wolfe3@gcu.edu')           # Type ID & Password
+## Create a new instance of Firefox WebDriver
+driver = webdriver.Firefox(service=FirefoxService(GeckoDriverManager().install()), options=options)     
+driver.maximize_window()
+
+driver.get('https://www.linkedin.com/checkpoint/lg/sign-in-another-account')        # Go to LinkedIn website
+driver.find_element(By.ID, 'username').send_keys('Noah.wolfe3@gcu.edu')             # Type ID & Password
 driver.find_element(By.ID, 'password').send_keys('Canyon1949!')
 # ---------------------------------------------------------------------------------------------------------------- #
-# Sign in button click
-driver.find_element(By.XPATH, "//button[normalize-space()='Sign in']").click()   # Button Click
+## Sign in button click
+driver.find_element(By.XPATH, "//button[normalize-space()='Sign in']").click()      # Button Click
 time.sleep(20)
 driver.get('https://www.linkedin.com/sales/search/people')
-
+WDW(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//input[@placeholder='Search keywords']"))) # Wait until page load
 
 # ---------------------------------------------------------------------------------------------------------------- #
 # Type the company name
 #Read CSV file (Make sure it is right csv)
-fulldf = pd.read_csv('/home/lettuce/WorkCode/SalesNavigator/linkedin_from_excel/company_result/company_100_500.csv')
+# fulldf = pd.read_csv('/home/lettuce/WorkCode/SalesNavigator/linkedin_from_excel/company_result/company_100_500.csv')
+
+current_dir = os.getcwd()                                                           # Get the current directory
+file_path = current_dir + "/company_result/company_100_500.csv"                     # File name
+fulldf = pd.read_csv(file_path)
 dfcompany = fulldf["Company"]
 
+# ---------------------------------------------------------------------------------------------------------------- #
 #First Itteration on Homepage
-#temp_compamny = dfcompany[0]
-#print(temp_compamny)
-#temp_compamny = "Liquid Foundation"
-#driver.find_element(By.XPATH, "//input[@id='global-typeahead-search-input']").send_keys(temp_compamny)   # Search bar click and type 
-#driver.find_element(By.XPATH, "//span[contains(text(),'Search')]").click()  #Click Search button
+# temp_compamny = dfcompany[0]
+# print(temp_compamny)
+# # temp_compamny = "Liquid Foundation"
+# driver.find_element(By.XPATH, "//input[@placeholder='Search keywords']").send_keys(temp_compamny)   # Search bar click and type 
+# time.sleep(4)
+# driver.find_element(By.XPATH, "//input[@placeholder='Search keywords']").send_keys(Keys.ENTER)
+# time.sleep(4)
+# text = driver.find_element(By.XPATH, "//body/main[@role='main']/div/div/div/div/ol/li[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]").text
+# time.sleep(4)
+# print(text)
 
-time.sleep(10) #Wait for page to load
+
+# ---------------------------------------------------------------------------------------------------------------- #
+# Change the li[index] for tracking
+# //body/main[@role='main']/div/div/div/div/ol/li[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]
 
 #Click the search bar and type company name
 #Get each company name For loop
 for x in range(len(dfcompany)):
     print(dfcompany[x])
     temp_compamny = dfcompany[x]
-    driver.find_element(By.XPATH, "//input[@placeholder='Search keywords']").send_keys(temp_compamny)   # Search bar click and type 
+    driver.find_element(By.XPATH, "//input[@placeholder='Search keywords']").send_keys(temp_compamny)     # Search bar click and type 
     time.sleep(4)
-    driver.find_element(By.XPATH, "//input[@placeholder='Search keywords']").send_keys(Keys.ENTER)   # Search bar click and type 
+    driver.find_element(By.XPATH, "//input[@placeholder='Search keywords']").send_keys(Keys.ENTER)        # Search bar click and type 
     time.sleep(4)
-    
-    text = driver.find_element(By.XPATH, "//body/main[@role='main']/div[@class='flex']/div[@class='full-width']/div[@class='p4 _vertical-scroll-results_1igybl']/div[@class='relative']/ol[@class='artdeco-list background-color-white _border-search-results_1igybl']/li[1]").text
+    text = driver.find_element(By.XPATH, "//body/main[@role='main']/div/div/div/div/ol/li[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]").text
     time.sleep(4)
-    
-    lines = text.splitlines()
-    seventh_line = lines[6]
-    print(seventh_line)
+    print(text)
+    driver.back()
     time.sleep(4)
+
+    # lines = text.splitlines()
+    # seventh_line = lines[6]
+    # print(seventh_line)
+    # time.sleep(4)
+
     #Remove Text From Search
     #driver.find_element(By.XPATH, "//button[@id='   ']//li-icon[@type='cancel-icon']//*[name()='svg']").click()  #Click People button
     #time.sleep(4)   
