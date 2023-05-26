@@ -35,6 +35,7 @@ options.accept_insecure_certs = True
 ## Create a new instance of Firefox WebDriver
 driver = webdriver.Firefox(service=FirefoxService(GeckoDriverManager().install()), options=options)     
 driver.maximize_window()
+wait = WDW(driver, 10)                                                              # Define Wait
 
 driver.get('https://www.linkedin.com/checkpoint/lg/sign-in-another-account')        # Go to LinkedIn website
 driver.find_element(By.ID, 'username').send_keys('Noah.wolfe3@gcu.edu')             # Type ID & Password
@@ -44,20 +45,19 @@ driver.find_element(By.ID, 'password').send_keys('Canyon1949!')
 driver.find_element(By.XPATH, "//button[normalize-space()='Sign in']").click()      # Button Click
 time.sleep(20)
 driver.get('https://www.linkedin.com/sales/search/people')
-WDW(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//input[@placeholder='Search keywords']"))) # Wait until page load
+wait.until(EC.presence_of_element_located((By.XPATH, "//input[@placeholder='Search keywords']"))) # Wait until page load
 
 # ---------------------------------------------------------------------------------------------------------------- #
-# Type the company name
-#Read CSV file (Make sure it is right csv)
+## Type the company name
+# Read CSV file (Make sure it is right csv)
 # fulldf = pd.read_csv('/home/lettuce/WorkCode/SalesNavigator/linkedin_from_excel/company_result/company_100_500.csv')
-
 current_dir = os.getcwd()                                                           # Get the current directory
 file_path = current_dir + "/company_result/company_100_500.csv"                     # File name
 fulldf = pd.read_csv(file_path)
 dfcompany = fulldf["Company"]
 
 # ---------------------------------------------------------------------------------------------------------------- #
-#First Itteration on Homepage
+# First Itteration on Homepage
 # temp_compamny = dfcompany[0]
 # print(temp_compamny)
 # # temp_compamny = "Liquid Foundation"
@@ -71,34 +71,32 @@ dfcompany = fulldf["Company"]
 
 
 # ---------------------------------------------------------------------------------------------------------------- #
-# Change the li[index] for tracking
-# //body/main[@role='main']/div/div/div/div/ol/li[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]
+## Change the li[index] for tracking
+# //body/main[@role='main']/div/div/div/div/ol/li[Change This Index]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]
 
-#Click the search bar and type company name
-#Get each company name For loop
+# Click the search bar and type company name
+# Get each company name For loop
 for x in range(len(dfcompany)):
     print(dfcompany[x])
     temp_compamny = dfcompany[x]
-    driver.find_element(By.XPATH, "//input[@placeholder='Search keywords']").send_keys(temp_compamny)     # Search bar click and type 
-    time.sleep(4)
-    driver.find_element(By.XPATH, "//input[@placeholder='Search keywords']").send_keys(Keys.ENTER)        # Search bar click and type 
-    time.sleep(4)
-    text = driver.find_element(By.XPATH, "//body/main[@role='main']/div/div/div/div/ol/li[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]").text
-    time.sleep(4)
-    print(text)
-    driver.back()
-    time.sleep(4)
-
-    # lines = text.splitlines()
-    # seventh_line = lines[6]
-    # print(seventh_line)
-    # time.sleep(4)
-
-    #Remove Text From Search
-    #driver.find_element(By.XPATH, "//button[@id='   ']//li-icon[@type='cancel-icon']//*[name()='svg']").click()  #Click People button
-    #time.sleep(4)   
     
-        
+    # Wait until the presence of Search Bar element. 
+    wait.until(EC.presence_of_element_located((By.XPATH, "//input[@placeholder='Search keywords']"))).send_keys(temp_compamny, Keys.ENTER)      # Search bar click and type  
+
+    # Wait until the profile element is presence
+    text_obj = wait.until(EC.presence_of_element_located((By.XPATH, "//body/main[@role='main']/div/div/div/div/ol/li[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]")))
+    
+    # Finds the text object from the profile and save it as string obj
+    text = text_obj.find_element(By.XPATH, "//body/main[@role='main']/div/div/div/div/ol/li[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]").text
+    
+    print(text)                                 # Print out the text in terminal 
+    driver.back()                               # Go to the back of the page
+    
+
+    # driver.find_element(By.XPATH, "//input[@placeholder='Search keywords']").send_keys(temp_compamny)     
+    # driver.find_element(By.XPATH, "//input[@placeholder='Search keywords']").send_keys(Keys.ENTER)        # Search bar click and type
+
+
     #COMPARE THE COMPANY NAME WITH THE ELEMENT
     #IF TRUE
         #ADD TO ARRAY
