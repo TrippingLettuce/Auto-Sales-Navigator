@@ -66,7 +66,7 @@ dfcompany = fulldf["Company"]
 # Click the search bar and type company name
 # Get each company name For loop
 for x in range(len(dfcompany)):
-    print(dfcompany[x])
+    print(dfcompany[x])                 # print- company name
     temp_compamny = dfcompany[x]
 
     try:
@@ -90,7 +90,7 @@ for x in range(len(dfcompany)):
         # for x in range(1, 24):
         # Find the count of <li> elements
         li_count = len(driver.find_elements(By.XPATH, "//ol/li"))
-        print(li_count)
+        print(li_count)                 # print- li count
         # Define the maximum number of iterations
         max_iterations = min(li_count, 24)
 
@@ -107,7 +107,7 @@ for x in range(len(dfcompany)):
             # ------ After  : Do comparison action here ------ #
             
             
-                print("Position: " + position, "|", "Company: " + company)                                 # Print out the text in terminal     
+                print("Position: " + position, "|", "Company: " + company)                                 # print- position & company
             # ------ Before : Do comparison action here ------ #
             except NoSuchElementException:
                 break
@@ -120,3 +120,13 @@ for x in range(len(dfcompany)):
 
 # ADD MORE (Look at prevoius CSV to find)
 # title_list = ['CEO', 'Co-Founder', 'Business Owner', 'Director Contract Manufacturing', 'Owner', 'COO', 'Principal Engineer', 'Founder', 'Sales Supervisor', 'Sales Closer', 'Sales Representative', 'Director of Operations', 'Principal', 'President of Operations', 'Chief Executive Officer', 'CTO', 'Business Development Lead', 'Marketing Executive', 'CEO', 'Chief Executive Officer', 'C.E.O.', 'Founder', 'Co-founder', 'Cofounder', 'Director of Development', 'Business Development', 'Retail', 'ecommerce', 'Digital Marketing', 'CMO', 'Chief Marketing Officer', 'CTO', 'Chief Technology Officer', 'Director of Marketing', 'Software', 'Fundraising', 'Partner', 'Donor', 'President', 'Owner', 'Partnership', 'Marketing manager']
+
+# ---------------------------------------------------------------------------------------------------------------- #
+## Task Required
+# 1) Auto Navigation for Sales Nav tab [x]
+# 2) Scroll through the page and grab profile [x]
+# 3) Compare correct company with required position [ ]
+#   - May require to find out right company name
+# 4) Press check mark for people who will save [ ]
+# 5) Save people correspond to right folder [ ]
+# ---------------------------------------------------------------------------------------------------------------- #
