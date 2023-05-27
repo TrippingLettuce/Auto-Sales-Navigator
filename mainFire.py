@@ -55,8 +55,8 @@ wait.until(EC.presence_of_element_located((By.XPATH, "//input[@placeholder='Sear
 ## Type the company name
 # Read CSV file (Make sure it is right csv)
 current_dir = os.getcwd()                                                           # Get the current directory
-file_path = current_dir + "/company_result/company_100_500.csv"                     # File name
-# file_path = "/home/lettuce/WorkCode/SalesNavigator/linkedin_from_excel/company_result/company_100_500.csv"
+# file_path = current_dir + "/company_result/company_100_500.csv"                     # File name
+file_path = "/home/lettuce/WorkCode/SalesNavigator/linkedin_from_excel/company_result/company_100_500.csv"
 fulldf = pd.read_csv(file_path)
 dfcompany = fulldf["Company"]
 
@@ -70,16 +70,19 @@ dfcompany = fulldf["Company"]
 for x in range(len(dfcompany)):
     print(dfcompany[x])                 # print- company name
     temp_compamny = dfcompany[x]
+    #Define the list for company name
+    companys_list = []
+    position_list = []
 
     try:
         # Wait until the presence of Search Bar element. 
         wait.until(EC.presence_of_element_located((By.XPATH, "//input[@placeholder='Search keywords']"))).send_keys(temp_compamny, Keys.ENTER)      # Search bar click and type  
-
         # Wait until the profile element is presence
         text_obj = wait.until(EC.presence_of_element_located((By.XPATH, "//body/main[@role='main']/div/div/div/div/ol/li[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]")))
     
         # Scroll
             #Click Page
+            
         driver.find_element(By.XPATH, "//div[@id='search-results-container']").click()
             #Get Driver
         actions = ActionChains(driver)
@@ -89,39 +92,64 @@ for x in range(len(dfcompany)):
             time.sleep(.3) # scroll time
         
         # Loop Through People (24 per page: Maximum element in the page)
-        # for x in range(1, 24):
+        # for y in range(1, 24):
         # Find the count of <li> elements
         li_count = len(driver.find_elements(By.XPATH, "//ol/li"))
         print(li_count)                 # print- li count
         # Define the maximum number of iterations
         max_iterations = min(li_count, 24)
 
-        for x in range(1, max_iterations + 1):
+        for y in range(1, max_iterations + 1):
             try:
                 # Define XPATH for company element and position element
-                company_obj_xpath = f"//body/main[@role='main']/div/div/div/div/ol/li[{x}]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]"
-                position_xpath = f"//body/main[@role='main']/div/div/div/div/ol/li[{x}]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/span[1]"
+                company_obj_xpath = f"//body/main[@role='main']/div/div/div/div/ol/li[{y}]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]"
+                position_xpath = f"//body/main[@role='main']/div/div/div/div/ol/li[{y}]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/span[1]"
 
                 # Grab a text file from company object
                 company_obj = wait.until(EC.presence_of_element_located((By.XPATH, company_obj_xpath))).text
                 position = wait.until(EC.presence_of_element_located((By.XPATH, position_xpath))).text
                 company = company_obj.replace(position+" ", "")
             # ------ After  : Do comparison action here ------ #
-            
-            
                 print("Position: " + position, "|", "Company: " + company)                                 # print- position & company
+                #print(temp_compamny + "----" + company)
+                if company.upper() == temp_compamny.upper():
+                    companys_list.append(y)
+                    position_list.append(position)
+                    print("\n" + str(companys_list) + "\n")
+
+                    # Mark in List
             # ------ Before : Do comparison action here ------ #
             except NoSuchElementException:
                 break
-
+                # Check Title and Company List
+        title_list = ['CEO', 'Co-Founder', 'Business Owner', 'Director Contract Manufacturing', 'Owner', 'COO', 'Principal Engineer', 'Founder', 'Sales Supervisor', 'Sales Closer', 'Sales Representative', 'Director of Operations', 'Principal', 'President of Operations', 'Chief Executive Officer', 'CTO', 'Business Development Lead', 'Marketing Executive', 'CEO', 'Chief Executive Officer', 'C.E.O.', 'Founder', 'Co founder', 'Cofounder', 'Director of Development', 'Business Development', 'Retail', 'ecommerce', 'Digital Marketing', 'CMO', 'Chief Marketing Officer', 'CTO', 'Chief Technology Officer', 'Director of Marketing', 'Software', 'Fundraising', 'Partner', 'Donor', 'President', 'Owner', 'Partnership', 'Marketing manager']
+        if len(companys_list) == 0:
+            print("No Companies")
+        elif len(companys_list) < 3:
+            print("\n" + str(companys_list) + "\n")
+            for m in companys_list:
+                wait.until(EC.element_to_be_clickable((By.XPATH, f"/html[1]/body[1]/main[1]/div[1]/div[2]/div[2]/div[1]/ol[1]/li[{m}]/div[1]/div[1]/div[1]/label[1]"))).click() 
+        elif len(companys_list) >= 3:
+            for x in range(len(position_list)):    # loop backwards to avoid skipping elements after popping
+                if position_list[x] not in title_list:
+                    companys_list.pop(x)                     # pop the item based on its index
+                    position_list.pop(x)
+                    
+            print("\n" + str(companys_list) + "\n")
+            for m in companys_list:
+                wait.until(EC.element_to_be_clickable((By.XPATH, f"/html[1]/body[1]/main[1]/div[1]/div[2]/div[2]/div[1]/ol[1]/li[{m}]/div[1]/div[1]/div[1]/label[1]"))).click() 
         driver.back()                               # Go to the back of the page
         
     except TimeoutException:
         driver.back()                               # Go to the back of the page
-        
+    
+
+
+
+#Get pos
+
 
 # ADD MORE (Look at prevoius CSV to find)
-# title_list = ['CEO', 'Co-Founder', 'Business Owner', 'Director Contract Manufacturing', 'Owner', 'COO', 'Principal Engineer', 'Founder', 'Sales Supervisor', 'Sales Closer', 'Sales Representative', 'Director of Operations', 'Principal', 'President of Operations', 'Chief Executive Officer', 'CTO', 'Business Development Lead', 'Marketing Executive', 'CEO', 'Chief Executive Officer', 'C.E.O.', 'Founder', 'Co-founder', 'Cofounder', 'Director of Development', 'Business Development', 'Retail', 'ecommerce', 'Digital Marketing', 'CMO', 'Chief Marketing Officer', 'CTO', 'Chief Technology Officer', 'Director of Marketing', 'Software', 'Fundraising', 'Partner', 'Donor', 'President', 'Owner', 'Partnership', 'Marketing manager']
 
 # ---------------------------------------------------------------------------------------------------------------- #
 ## Task Required
