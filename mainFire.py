@@ -27,8 +27,7 @@ from selenium.webdriver.support.ui import WebDriverWait as WDW
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 
-from selenium.common.exceptions import NoSuchElementException
-from selenium.common.exceptions import TimeoutException
+from selenium.common.exceptions import NoSuchElementException, ElementNotInteractableException, TimeoutException
 # ---------------------------------------------------------------------------------------------------------------- #
 ## Options for Firefox Browser
 options = webdriver.FirefoxOptions()
@@ -55,8 +54,8 @@ wait.until(EC.presence_of_element_located((By.XPATH, "//input[@placeholder='Sear
 ## Type the company name
 # Read CSV file (Make sure it is right csv)
 current_dir = os.getcwd()                                                           # Get the current directory
-# file_path = current_dir + "/company_result/company_100_500.csv"                     # File name
-file_path = "/home/lettuce/WorkCode/SalesNavigator/linkedin_from_excel/company_result/company_100_500.csv"
+file_path = current_dir + "/company_result/company_100_500.csv"                     # File name
+# file_path = "/home/lettuce/WorkCode/SalesNavigator/linkedin_from_excel/company_result/company_100_500.csv"
 fulldf = pd.read_csv(file_path)
 dfcompany = fulldf["Company"]
 
@@ -73,6 +72,7 @@ for x in range(len(dfcompany)):
     #Define the list for company name
     companys_list = []
     position_list = []
+    
 
     try:
         # Wait until the presence of Search Bar element. 
@@ -109,10 +109,11 @@ for x in range(len(dfcompany)):
                 company_obj = wait.until(EC.presence_of_element_located((By.XPATH, company_obj_xpath))).text
                 position = wait.until(EC.presence_of_element_located((By.XPATH, position_xpath))).text
                 company = company_obj.replace(position+" ", "")
+
             # ------ After  : Do comparison action here ------ #
                 print("Position: " + position, "|", "Company: " + company)                                 # print- position & company
                 #print(temp_compamny + "----" + company)
-                if company.upper() == temp_compamny.upper():
+                if company.replace(" ", "").lower() == temp_compamny.replace(" ","").lower(): # added strip method to erase the blank
                     companys_list.append(y)
                     position_list.append(position)
                     print("\n" + str(companys_list) + "\n")
@@ -122,22 +123,41 @@ for x in range(len(dfcompany)):
             except NoSuchElementException:
                 break
                 # Check Title and Company List
-        title_list = ['CEO', 'Co-Founder', 'Business Owner', 'Director Contract Manufacturing', 'Owner', 'COO', 'Principal Engineer', 'Founder', 'Sales Supervisor', 'Sales Closer', 'Sales Representative', 'Director of Operations', 'Principal', 'President of Operations', 'Chief Executive Officer', 'CTO', 'Business Development Lead', 'Marketing Executive', 'CEO', 'Chief Executive Officer', 'C.E.O.', 'Founder', 'Co founder', 'Cofounder', 'Director of Development', 'Business Development', 'Retail', 'ecommerce', 'Digital Marketing', 'CMO', 'Chief Marketing Officer', 'CTO', 'Chief Technology Officer', 'Director of Marketing', 'Software', 'Fundraising', 'Partner', 'Donor', 'President', 'Owner', 'Partnership', 'Marketing manager']
+        # title_list = ['Chairman of the Board','President & CEO', 'CEO', 'Co-Founder', 'Business Owner', 'Director Contract Manufacturing', 'Owner', 'COO', 'Principal Engineer', 'Founder', 'Sales Supervisor', 'Sales Closer', 'Sales Representative', 'Director of Operations', 'Principal', 'President of Operations', 'Chief Executive Officer', 'CTO', 'Business Development Lead', 'Marketing Executive', 'CEO', 'Chief Executive Officer', 'C.E.O.', 'Founder', 'Co founder', 'Cofounder', 'Director of Development', 'Business Development', 'Retail', 'ecommerce', 'Digital Marketing', 'CMO', 'Chief Marketing Officer', 'CTO', 'Chief Technology Officer', 'Director of Marketing', 'Software', 'Fundraising', 'Partner', 'Donor', 'President', 'Owner', 'Partnership', 'Marketing manager']
+        keyword = ['ceo','president','lead','owner','engineer','senior','chief','partner','director','head',
+                'development','officer','retail','fundraising','cto','cmo','founder','coo','chairman','honor','manager']
+
         if len(companys_list) == 0:
             print("No Companies")
+
         elif len(companys_list) < 3:
             print("\n" + str(companys_list) + "\n")
             for m in companys_list:
                 wait.until(EC.element_to_be_clickable((By.XPATH, f"/html[1]/body[1]/main[1]/div[1]/div[2]/div[2]/div[1]/ol[1]/li[{m}]/div[1]/div[1]/div[1]/label[1]"))).click() 
+
         elif len(companys_list) >= 3:
-            for x in range(len(position_list)):    # loop backwards to avoid skipping elements after popping
-                if position_list[x] not in title_list:
-                    companys_list.pop(x)                     # pop the item based on its index
-                    position_list.pop(x)
-                    
+            indices_to_pop = []
+            for x in range(len(position_list)):
+                if not any(keyword in position_list[x].lower() for keyword in keyword):
+                    indices_to_pop.append(x)
+            
+            for index in reversed(indices_to_pop):
+                companys_list.pop(index)
+                position_list.pop(index)
+            
             print("\n" + str(companys_list) + "\n")
+
             for m in companys_list:
-                wait.until(EC.element_to_be_clickable((By.XPATH, f"/html[1]/body[1]/main[1]/div[1]/div[2]/div[2]/div[1]/ol[1]/li[{m}]/div[1]/div[1]/div[1]/label[1]"))).click() 
+                try:
+                    wait.until(EC.element_to_be_clickable((By.XPATH, f"/html[1]/body[1]/main[1]/div[1]/div[2]/div[2]/div[1]/ol[1]/li[{m}]/div[1]/div[1]/div[1]/label[1]"))).click() 
+                # except NoSuchElementException:
+                #     continue
+                except ElementNotInteractableException:
+                    pass
+                
+            time.sleep(2)
+
+        # time.sleep(4) # to see the check mark is right on
         driver.back()                               # Go to the back of the page
         
     except TimeoutException:
