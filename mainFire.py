@@ -11,6 +11,9 @@ import os
 import time
 import pandas as pd
 import numpy as np
+
+# Package for scraping
+from bs4 import BeautifulSoup
 # ---------------------------------------------------------------------------------------------------------------- #
 ## Applicable packages for automation
 # Selenium module imports: pip install selenium
@@ -23,7 +26,6 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait as WDW
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
-
 # ---------------------------------------------------------------------------------------------------------------- #
 ## Options for Firefox Browser
 options = webdriver.FirefoxOptions()
@@ -43,7 +45,7 @@ driver.find_element(By.ID, 'password').send_keys('Canyon1949!')
 # ---------------------------------------------------------------------------------------------------------------- #
 ## Sign in button click
 driver.find_element(By.XPATH, "//button[normalize-space()='Sign in']").click()      # Button Click
-time.sleep(20)
+time.sleep(10)
 driver.get('https://www.linkedin.com/sales/search/people')
 wait.until(EC.presence_of_element_located((By.XPATH, "//input[@placeholder='Search keywords']"))) # Wait until page load
 
@@ -53,7 +55,7 @@ wait.until(EC.presence_of_element_located((By.XPATH, "//input[@placeholder='Sear
 # fulldf = pd.read_csv('/home/lettuce/WorkCode/SalesNavigator/linkedin_from_excel/company_result/company_100_500.csv')
 current_dir = os.getcwd()                                                           # Get the current directory
 file_path = current_dir + "/company_result/company_100_500.csv"                     # File name
-file_path = "/home/lettuce/WorkCode/SalesNavigator/linkedin_from_excel/company_result/company_100_500.csv"
+# file_path = "/home/lettuce/WorkCode/SalesNavigator/linkedin_from_excel/company_result/company_100_500.csv"
 fulldf = pd.read_csv(file_path)
 dfcompany = fulldf["Company"]
 
@@ -83,6 +85,8 @@ for x in range(len(dfcompany)):
     
     # Wait until the presence of Search Bar element. 
     wait.until(EC.presence_of_element_located((By.XPATH, "//input[@placeholder='Search keywords']"))).send_keys(temp_compamny, Keys.ENTER)      # Search bar click and type  
+    
+    # ol_element = driver.find_element(By.XPATH, )
 
     # Wait until the profile element is presence
     text_obj = wait.until(EC.presence_of_element_located((By.XPATH, "//body/main[@role='main']/div/div/div/div/ol/li[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]")))
@@ -92,12 +96,13 @@ for x in range(len(dfcompany)):
     # position = text_obj.find_element(By.XPATH, "//body/main[@role='main']/div/div/div/div/ol/li[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/span[1]").text
     # company = text_obj.find_element(By.XPATH, "//body/main[@role='main']/div/div/div/div/ol/li[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/span[2]").text
     # print("Position: " + position, "|", "Company: " + company)                                 # Print out the text in terminal 
-    company_obj = text_obj.find_element(By.XPATH, "//body/main[@role='main']/div/div/div/div/ol/li[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]").text
-    position = text_obj.find_element(By.XPATH, "//body/main[@role='main']/div/div/div/div/ol/li[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/span[1]").text
-    company = company_obj.replace(position+" ", "")
 
-
-    print("Position: " + position, "|", "Company: " + company)                                 # Print out the text in terminal     
+    # Loop Through People (24 per page ish)
+    for x in range(24):
+        company_obj = text_obj.find_element(By.XPATH, f"//body/main[@role='main']/div/div/div/div/ol/li[{x}]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]").text
+        position = text_obj.find_element(By.XPATH, f"//body/main[@role='main']/div/div/div/div/ol/li1[{x}]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/span[1]").text
+        company = company_obj.replace(position+" ", "")
+        print("Position: " + position, "|", "Company: " + company)                                 # Print out the text in terminal     
     # print(position)
 
     driver.back()                               # Go to the back of the page
