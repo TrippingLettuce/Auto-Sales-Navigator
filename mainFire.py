@@ -85,8 +85,6 @@ for x in range(len(dfcompany)):
     
     # Wait until the presence of Search Bar element. 
     wait.until(EC.presence_of_element_located((By.XPATH, "//input[@placeholder='Search keywords']"))).send_keys(temp_compamny, Keys.ENTER)      # Search bar click and type  
-    
-    # ol_element = driver.find_element(By.XPATH, )
 
     # Wait until the profile element is presence
     text_obj = wait.until(EC.presence_of_element_located((By.XPATH, "//body/main[@role='main']/div/div/div/div/ol/li[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]")))
@@ -98,11 +96,10 @@ for x in range(len(dfcompany)):
     # print("Position: " + position, "|", "Company: " + company)                                 # Print out the text in terminal 
 
     # Loop Through People (24 per page ish)
-    for x in range(24):
-        company_obj = text_obj.find_element(By.XPATH, f"//body/main[@role='main']/div/div/div/div/ol/li[{x}]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]").text
-        position = text_obj.find_element(By.XPATH, f"//body/main[@role='main']/div/div/div/div/ol/li1[{x}]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/span[1]").text
-        company = company_obj.replace(position+" ", "")
-        print("Position: " + position, "|", "Company: " + company)                                 # Print out the text in terminal     
+    company_obj = text_obj.find_element(By.XPATH, "//body/main[@role='main']/div/div/div/div/ol/li[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]").text
+    position = text_obj.find_element(By.XPATH, "//body/main[@role='main']/div/div/div/div/ol/li[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/span[1]").text
+    company = company_obj.replace(position+" ", "")
+    print("Position: " + position, "|", "Company: " + company)                                 # Print out the text in terminal     
     # print(position)
 
     driver.back()                               # Go to the back of the page
