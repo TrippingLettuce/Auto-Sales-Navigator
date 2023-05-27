@@ -53,6 +53,7 @@ wait.until(EC.presence_of_element_located((By.XPATH, "//input[@placeholder='Sear
 # fulldf = pd.read_csv('/home/lettuce/WorkCode/SalesNavigator/linkedin_from_excel/company_result/company_100_500.csv')
 current_dir = os.getcwd()                                                           # Get the current directory
 file_path = current_dir + "/company_result/company_100_500.csv"                     # File name
+file_path = "/home/lettuce/WorkCode/SalesNavigator/linkedin_from_excel/company_result/company_100_500.csv"
 fulldf = pd.read_csv(file_path)
 dfcompany = fulldf["Company"]
 
@@ -84,13 +85,13 @@ for x in range(len(dfcompany)):
     wait.until(EC.presence_of_element_located((By.XPATH, "//input[@placeholder='Search keywords']"))).send_keys(temp_compamny, Keys.ENTER)      # Search bar click and type  
 
     # Wait until the profile element is presence
-    text_obj = wait.until(EC.presence_of_element_located((By.XPATH, "//body/main[@role='main']/div/div/div/div/ol/li[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]")))
-    
-    # Finds the text object from the profile and save it as string obj
-    text = text_obj.find_element(By.XPATH, "//body/main[@role='main']/div/div/div/div/ol/li[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]").text
-    
-    print(text)                                 # Print out the text in terminal 
-    driver.back()                               # Go to the back of the page
+    text_obj = wait.until(EC.presence_of_element_located((By.XPATH, f"//body/main[@role='main']/div/div/div/div/ol/li[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]")))
+    # loop through the list of people
+    for x in range(1,10):
+        # Finds the text object from the profile and save it as string obj
+        text = text_obj.find_element(By.XPATH, f"//body/main[@role='main']/div/div/div/div/ol/li[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]").text
+        print(text)                                 # Print out the text in terminal 
+        driver.back()                               # Go to the back of the page
     
 
     # driver.find_element(By.XPATH, "//input[@placeholder='Search keywords']").send_keys(temp_compamny)     
