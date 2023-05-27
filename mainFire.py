@@ -19,7 +19,9 @@ from bs4 import BeautifulSoup
 # Selenium module imports: pip install selenium
 from selenium import webdriver
 from selenium.webdriver.firefox.service import Service as FirefoxService           # Change here
-from webdriver_manager.firefox import GeckoDriverManager                           # Change here
+from webdriver_manager.firefox import GeckoDriverManager       
+from selenium.webdriver.common.action_chains import ActionChains
+# Change here
 
 # Packages for web control
 from selenium.webdriver.support import expected_conditions as EC
@@ -53,9 +55,9 @@ wait.until(EC.presence_of_element_located((By.XPATH, "//input[@placeholder='Sear
 ## Type the company name
 # Read CSV file (Make sure it is right csv)
 # fulldf = pd.read_csv('/home/lettuce/WorkCode/SalesNavigator/linkedin_from_excel/company_result/company_100_500.csv')
-current_dir = os.getcwd()                                                           # Get the current directory
-file_path = current_dir + "/company_result/company_100_500.csv"                     # File name
-# file_path = "/home/lettuce/WorkCode/SalesNavigator/linkedin_from_excel/company_result/company_100_500.csv"
+#current_dir = os.getcwd()                                                           # Get the current directory
+#file_path = current_dir + "/company_result/company_100_500.csv"                     # File name
+file_path = "/home/lettuce/WorkCode/SalesNavigator/linkedin_from_excel/company_result/company_100_500.csv"
 fulldf = pd.read_csv(file_path)
 dfcompany = fulldf["Company"]
 
@@ -85,25 +87,24 @@ for x in range(len(dfcompany)):
     
     # Wait until the presence of Search Bar element. 
     wait.until(EC.presence_of_element_located((By.XPATH, "//input[@placeholder='Search keywords']"))).send_keys(temp_compamny, Keys.ENTER)      # Search bar click and type  
-    
-    # ol_element = driver.find_element(By.XPATH, )
-
     # Wait until the profile element is presence
     text_obj = wait.until(EC.presence_of_element_located((By.XPATH, "//body/main[@role='main']/div/div/div/div/ol/li[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]")))
-    
-    # Finds the text object from the profile and save it as string obj
-    # position = text_obj.find_element(By.XPATH, "//body/main[@role='main']/div/div/div/div/ol/li[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]").text
-    # position = text_obj.find_element(By.XPATH, "//body/main[@role='main']/div/div/div/div/ol/li[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/span[1]").text
-    # company = text_obj.find_element(By.XPATH, "//body/main[@role='main']/div/div/div/div/ol/li[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/span[2]").text
-    # print("Position: " + position, "|", "Company: " + company)                                 # Print out the text in terminal 
-
+    # Scroll
+        #Click Page
+    driver.find_element(By.XPATH, "//div[@id='search-results-container']").click()
+        #Get Driver
+    actions = ActionChains(driver)
+        #Scroll Through Page
+    for _ in range(10):  # scroll ammount
+        actions.send_keys(Keys.PAGE_DOWN).perform()
+        time.sleep(.3) # scroll time
+        
     # Loop Through People (24 per page ish)
-    for x in range(24):
+    for x in range(1, 24):
         company_obj = text_obj.find_element(By.XPATH, f"//body/main[@role='main']/div/div/div/div/ol/li[{x}]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]").text
-        position = text_obj.find_element(By.XPATH, f"//body/main[@role='main']/div/div/div/div/ol/li1[{x}]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/span[1]").text
+        position = text_obj.find_element(By.XPATH, f"//body/main[@role='main']/div/div/div/div/ol/li[{x}]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/span[1]").text
         company = company_obj.replace(position+" ", "")
         print("Position: " + position, "|", "Company: " + company)                                 # Print out the text in terminal     
-    # print(position)
 
     driver.back()                               # Go to the back of the page
     
