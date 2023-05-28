@@ -33,7 +33,6 @@ from selenium.common.exceptions import NoSuchElementException, ElementNotInterac
 options = webdriver.FirefoxOptions()
 options.accept_insecure_certs = True
 
-
 # ---------------------------------------------------------------------------------------------------------------- #
 ## Create a new instance of Firefox WebDriver
 driver = webdriver.Firefox(service=FirefoxService(GeckoDriverManager().install()), options=options)     
@@ -54,8 +53,8 @@ wait.until(EC.presence_of_element_located((By.XPATH, "//input[@placeholder='Sear
 ## Type the company name
 # Read CSV file (Make sure it is right csv)
 current_dir = os.getcwd()                                                           # Get the current directory
-file_path = current_dir + "/company_result/company_100_500.csv"                     # File name
-# file_path = "/home/lettuce/WorkCode/SalesNavigator/linkedin_from_excel/company_result/company_100_500.csv"
+#file_path = current_dir + "/company_result/company_100_500.csv"                     # File name
+file_path = "/home/lettuce/WorkCode/SalesNavigator/linkedin_from_excel/company_result/company_100_500.csv"
 fulldf = pd.read_csv(file_path)
 dfcompany = fulldf["Company"]
 
@@ -89,7 +88,7 @@ for x in range(len(dfcompany)):
             #Scroll Through Page
         for _ in range(10):  # scroll ammount
             actions.send_keys(Keys.PAGE_DOWN).perform()
-            time.sleep(.3) # scroll time
+            time.sleep(.2) # scroll time
         
         # Loop Through People (24 per page: Maximum element in the page)
         # for y in range(1, 24):
@@ -125,7 +124,7 @@ for x in range(len(dfcompany)):
                 # Check Title and Company List
         # title_list = ['Chairman of the Board','President & CEO', 'CEO', 'Co-Founder', 'Business Owner', 'Director Contract Manufacturing', 'Owner', 'COO', 'Principal Engineer', 'Founder', 'Sales Supervisor', 'Sales Closer', 'Sales Representative', 'Director of Operations', 'Principal', 'President of Operations', 'Chief Executive Officer', 'CTO', 'Business Development Lead', 'Marketing Executive', 'CEO', 'Chief Executive Officer', 'C.E.O.', 'Founder', 'Co founder', 'Cofounder', 'Director of Development', 'Business Development', 'Retail', 'ecommerce', 'Digital Marketing', 'CMO', 'Chief Marketing Officer', 'CTO', 'Chief Technology Officer', 'Director of Marketing', 'Software', 'Fundraising', 'Partner', 'Donor', 'President', 'Owner', 'Partnership', 'Marketing manager']
         keyword = ['ceo','president','lead','owner','engineer','senior','chief','partner','director','head',
-                'development','officer','retail','fundraising','cto','cmo','founder','coo','chairman','honor','manager']
+                'development','officer','executive','retail','fundraising','cto','cmo','founder','coo','chairman','honor','manager']
 
         if len(companys_list) == 0:
             print("No Companies")
@@ -135,6 +134,7 @@ for x in range(len(dfcompany)):
             for m in companys_list:
                 wait.until(EC.element_to_be_clickable((By.XPATH, f"/html[1]/body[1]/main[1]/div[1]/div[2]/div[2]/div[1]/ol[1]/li[{m}]/div[1]/div[1]/div[1]/label[1]"))).click() 
 
+        # Commpanys are more than 3
         elif len(companys_list) >= 3:
             indices_to_pop = []
             for x in range(len(position_list)):
@@ -146,18 +146,24 @@ for x in range(len(dfcompany)):
                 position_list.pop(index)
             
             print("\n" + str(companys_list) + "\n")
-
+            
             for m in companys_list:
-                try:
-                    wait.until(EC.element_to_be_clickable((By.XPATH, f"/html[1]/body[1]/main[1]/div[1]/div[2]/div[2]/div[1]/ol[1]/li[{m}]/div[1]/div[1]/div[1]/label[1]"))).click() 
-                # except NoSuchElementException:
-                #     continue
-                except ElementNotInteractableException:
-                    pass
-                
-            time.sleep(2)
+                if m < 4:
+                    try:
+                        wait.until(EC.element_to_be_clickable((By.XPATH, f"/html[1]/body[1]/main[1]/div[1]/div[2]/div[2]/div[1]/ol[1]/li[{m}]/div[1]/div[1]/div[1]/label[1]"))).click() 
+                        print(f"Clicked {m}") 
+                    except ElementNotInteractableException:
+                        pass
+                elif m > 4:
+                    try:
+                        element = driver.find_element("xpath", f'/html[1]/body[1]/main[1]/div[1]/div[2]/div[2]/div[1]/ol[1]/li[{m}]/div[1]/div[1]/div[1]/label[1]')
+                        driver.execute_script("arguments[0].scrollIntoView();", element)
+                        driver.execute_script("arguments[0].click();", element)
+                        print(f"Clicked {m}")
+                    except (ElementNotInteractableException,NoSuchElementException):
+                        pass
 
-        # time.sleep(4) # to see the check mark is right on
+        #time.sleep(20) # to see the check mark is right on
         driver.back()                               # Go to the back of the page
         
     except TimeoutException:

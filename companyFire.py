@@ -6,6 +6,7 @@ import os
 import time
 import pandas as pd
 import numpy as np
+from selenium import webdriver
 
 # ---------------------------------------------------------------------------------------------------------------- #
 ## Applicable packages for automation
@@ -38,17 +39,20 @@ search_box.send_keys("Test Hello", Keys.ENTER)
 time.sleep(5)
 
 # Now add a scroll to bottom feature
-last_height = driver.execute_script("return document.body.scrollHeight")
+#last_height = driver.execute_script("return document.body.scrollHeight")
 
-while True:
-    # Scroll down to the bottom of the page
-    driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+# while True:
+#     # Scroll down to the bottom of the page
+#     driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
 
-    # Wait for new page segment to load
-    time.sleep(2)
+#     # Wait for new page segment to load
+#     time.sleep(2)
 
-    # Calculate new scroll height and compare with last scroll height
-    new_height = driver.execute_script("return document.body.scrollHeight")
-    if new_height == last_height:
-        break
-    last_height = new_height
+#     # Calculate new scroll height and compare with last scroll height
+#     new_height = driver.execute_script("return document.body.scrollHeight")
+#     if new_height == last_height:
+#         break
+#     last_height = new_height
+
+element = driver.find_element_by_xpath('/html[1]/body[1]/div[7]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[10]/div[1]/div[1]/div[1]/div[1]/div[1]')
+driver.execute_script("arguments[0].scrollIntoView();", element)
