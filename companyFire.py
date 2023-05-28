@@ -7,7 +7,7 @@ import time
 import pandas as pd
 import numpy as np
 from selenium import webdriver
-
+from selenium.common.exceptions import NoSuchElementException, ElementNotInteractableException, TimeoutException
 # ---------------------------------------------------------------------------------------------------------------- #
 ## Applicable packages for automation
 from selenium import webdriver
@@ -31,28 +31,27 @@ wait = WDW(driver, 10)
 # Go to Google
 driver.get('https://www.google.com')
 
-# Find the search box element by its name attribute
-search_box = wait.until(EC.presence_of_element_located((By.NAME, 'q')))    # Google's search box name is 'q'
-search_box.send_keys("Test Hello", Keys.ENTER) 
+#Get CSV
+df = pd.read_csv('/home/lettuce/WorkCode/SalesNavigator/linkedin_from_excel/company_result/company_100_500.csv')
+dfcompany = df["Company"]
 
-# Wait for some time for the page to load
-time.sleep(5)
+for x in range(len(dfcompany)):
+    temp_compamny = dfcompany[x]
 
-# Now add a scroll to bottom feature
-#last_height = driver.execute_script("return document.body.scrollHeight")
+    # Find the search box element by its name attribute
+    search_box = wait.until(EC.presence_of_element_located((By.NAME, 'q')))    # Google's search box name is 'q'
+    search_box.send_keys(temp_compamny, Keys.ENTER) 
+    time.sleep(2)
 
-# while True:
-#     # Scroll down to the bottom of the page
-#     driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+    wait.until(EC.element_to_be_clickable((By.ID, "res")))
+    try:
+        
+        company_obj = wait.until(EC.presence_of_element_located((By.XPATH, "//p[@role='heading']//a[1]"))).is_displayed()
+        print(company_obj)
+    except (ElementNotInteractableException, NoSuchElementException, TimeoutException) as e:
+        driver.back()  # Go to the back of the page
+        print(f"No autocorrect element for {temp_compamny} or another issue occurred. Error: {e}")
+        driver.back() 
+        continue
 
-#     # Wait for new page segment to load
-#     time.sleep(2)
-
-#     # Calculate new scroll height and compare with last scroll height
-#     new_height = driver.execute_script("return document.body.scrollHeight")
-#     if new_height == last_height:
-#         break
-#     last_height = new_height
-
-element = driver.find_element_by_xpath('/html[1]/body[1]/div[7]/div[1]/div[13]/div[1]/div[2]/div[2]/div[1]/div[1]/div[10]/div[1]/div[1]/div[1]/div[1]/div[1]')
-driver.execute_script("arguments[0].scrollIntoView();", element)
+    driver.back()  # Go to the back of the page
