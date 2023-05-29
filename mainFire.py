@@ -53,11 +53,13 @@ wait.until(EC.presence_of_element_located((By.XPATH, "//input[@placeholder='Sear
 ## Type the company name
 # Read CSV file (Make sure it is right csv)
 current_dir = os.getcwd()                                                           # Get the current directory
-#file_path = current_dir + "/company_result/company_100_500.csv"                     # File name
-file_path = "/home/lettuce/WorkCode/SalesNavigator/linkedin_from_excel/company_result/company_100_500.csv"
+file_path = current_dir + "/company_result/company_100_500.csv"                     # File name
+# file_path = "/home/lettuce/WorkCode/SalesNavigator/linkedin_from_excel/company_result/company_100_500.csv"
 fulldf = pd.read_csv(file_path)
 dfcompany = fulldf["Company"]
 
+# save_list folder name
+folder_name = 'Test leads 2.0'
 
 # ---------------------------------------------------------------------------------------------------------------- #
 ## Change the li[index] for tracking
@@ -67,7 +69,7 @@ dfcompany = fulldf["Company"]
 # Get each company name For loop
 for x in range(len(dfcompany)):
     print(dfcompany[x])                 # print- company name
-    temp_compamny = dfcompany[x]
+    temp_company = dfcompany[x]
     #Define the list for company name
     companys_list = []
     position_list = []
@@ -75,7 +77,7 @@ for x in range(len(dfcompany)):
 
     try:
         # Wait until the presence of Search Bar element. 
-        wait.until(EC.presence_of_element_located((By.XPATH, "//input[@placeholder='Search keywords']"))).send_keys(temp_compamny, Keys.ENTER)      # Search bar click and type  
+        wait.until(EC.presence_of_element_located((By.XPATH, "//input[@placeholder='Search keywords']"))).send_keys(temp_company, Keys.ENTER)      # Search bar click and type  
         # Wait until the profile element is presence
         text_obj = wait.until(EC.presence_of_element_located((By.XPATH, "//body/main[@role='main']/div/div/div/div/ol/li[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]")))
         
@@ -112,7 +114,7 @@ for x in range(len(dfcompany)):
             # ------ After  : Do comparison action here ------ #
                 print("Position: " + position, "|", "Company: " + company)                                 # print- position & company
                 #print(temp_compamny + "----" + company)
-                if company.replace(" ", "").lower() == temp_compamny.replace(" ","").lower(): # added strip method to erase the blank
+                if company.replace(" ", "").lower() == temp_company.replace(" ","").lower(): # added strip method to erase the blank
                     companys_list.append(y)
                     position_list.append(position)
                     print("\n" + str(companys_list) + "\n")
@@ -124,7 +126,7 @@ for x in range(len(dfcompany)):
                 # Check Title and Company List
         # title_list = ['Chairman of the Board','President & CEO', 'CEO', 'Co-Founder', 'Business Owner', 'Director Contract Manufacturing', 'Owner', 'COO', 'Principal Engineer', 'Founder', 'Sales Supervisor', 'Sales Closer', 'Sales Representative', 'Director of Operations', 'Principal', 'President of Operations', 'Chief Executive Officer', 'CTO', 'Business Development Lead', 'Marketing Executive', 'CEO', 'Chief Executive Officer', 'C.E.O.', 'Founder', 'Co founder', 'Cofounder', 'Director of Development', 'Business Development', 'Retail', 'ecommerce', 'Digital Marketing', 'CMO', 'Chief Marketing Officer', 'CTO', 'Chief Technology Officer', 'Director of Marketing', 'Software', 'Fundraising', 'Partner', 'Donor', 'President', 'Owner', 'Partnership', 'Marketing manager']
         keyword = ['ceo','president','lead','owner','engineer','senior','chief','partner','director','head',
-                'development','officer','executive','retail','fundraising','cto','cmo','founder','coo','chairman','honor','manager']
+                'development','officer','executive','retail','fundraising','cto','cmo','founder','coo','chairman','honor']
 
         if len(companys_list) == 0:
             print("No Companies")
@@ -162,6 +164,28 @@ for x in range(len(dfcompany)):
                         print(f"Clicked {m}")
                     except (ElementNotInteractableException,NoSuchElementException):
                         pass
+
+        if len(companys_list) > 0:
+            save_button = wait.until(EC.presence_of_element_located((By.XPATH, "//button[@aria-label='Save all selected leads to a custom list.']")))
+            save_button.click()
+
+            # Find the parent element that contains the list of <li> elements
+            save_list = wait.until(EC.presence_of_element_located((By.XPATH, '/html/body/main/div[1]/div[2]/div[1]/div[2]/div/div[3]/div/div/ul/li[2]/ul')))
+            save_list.find_element(By.XPATH, '/html/body/main/div[1]/div[2]/div[1]/div[2]/div/div[3]/div/div/ul/li[2]/ul')
+            
+            # Find the elements for folders
+            child_li = save_list.find_elements(By.TAG_NAME, 'li')
+
+            # Count the number of folder list
+            li_count = len(child_li)
+
+            for i in range(1, li_count + 1):
+                target = save_list.find_element(By.XPATH, f'/html/body/main/div[1]/div[2]/div[1]/div[2]/div/div[3]/div/div/ul/li[2]/ul/li[{i}]/div/div/div[1]').text
+                if target == 'Test leads 2.0':
+                    driver.find_element(By.XPATH, f'/html/body/main/div[1]/div[2]/div[1]/div[2]/div/div[3]/div/div/ul/li[2]/ul/li[{i}]').click()
+                    break
+
+            time.sleep(2)
 
         #time.sleep(20) # to see the check mark is right on
         driver.back()                               # Go to the back of the page

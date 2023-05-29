@@ -33,7 +33,6 @@ from selenium.common.exceptions import NoSuchElementException, ElementNotInterac
 options = webdriver.FirefoxOptions()
 options.accept_insecure_certs = True
 
-
 # ---------------------------------------------------------------------------------------------------------------- #
 ## Create a new instance of Firefox WebDriver
 driver = webdriver.Firefox(service=FirefoxService(GeckoDriverManager().install()), options=options)     
@@ -59,124 +58,42 @@ file_path = current_dir + "/company_result/company_100_500.csv"                 
 fulldf = pd.read_csv(file_path)
 dfcompany = fulldf["Company"]
 
+temp_company = dfcompany[0]
 
-# ---------------------------------------------------------------------------------------------------------------- #
-## Change the li[index] for tracking
-# //body/main[@role='main']/div/div/div/div/ol/li[Change This Index]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]
+wait.until(EC.presence_of_element_located((By.XPATH, "//input[@placeholder='Search keywords']"))).send_keys(temp_company, Keys.ENTER)
+wait.until(EC.element_to_be_clickable((By.XPATH, f"/html[1]/body[1]/main[1]/div[1]/div[2]/div[2]/div[1]/ol[1]/li[{1}]/div[1]/div[1]/div[1]/label[1]"))).click() 
 
-# Click the search bar and type company name
-# Get each company name For loop
-for x in range(len(dfcompany)):
-    print(dfcompany[x])                 # print- company name
-    temp_compamny = dfcompany[x]
-    #Define the list for company name
-    companys_list = []
-    position_list = []
-    
+save_button = wait.until(EC.presence_of_element_located((By.XPATH, "//button[@aria-label='Save all selected leads to a custom list.']")))
+save_button.click()
 
-    try:
-        # Wait until the presence of Search Bar element. 
-        wait.until(EC.presence_of_element_located((By.XPATH, "//input[@placeholder='Search keywords']"))).send_keys(temp_compamny, Keys.ENTER)      # Search bar click and type  
-        # Wait until the profile element is presence
-        text_obj = wait.until(EC.presence_of_element_located((By.XPATH, "//body/main[@role='main']/div/div/div/div/ol/li[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]")))
-    
-        # Scroll
-            #Click Page
-            
-        driver.find_element(By.XPATH, "//div[@id='search-results-container']").click()
-            #Get Driver
-        actions = ActionChains(driver)
-            #Scroll Through Page
-        for _ in range(10):  # scroll ammount
-            actions.send_keys(Keys.PAGE_DOWN).perform()
-            time.sleep(.3) # scroll time
-        
-        # Loop Through People (24 per page: Maximum element in the page)
-        # for y in range(1, 24):
-        # Find the count of <li> elements
-        li_count = len(driver.find_elements(By.XPATH, "//ol/li"))
-        print(li_count)                 # print- li count
-        # Define the maximum number of iterations
-        max_iterations = min(li_count, 24)
-
-        for y in range(1, max_iterations + 1):
-            try:
-                # Define XPATH for company element and position element
-                company_obj_xpath = f"//body/main[@role='main']/div/div/div/div/ol/li[{y}]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]"
-                position_xpath = f"//body/main[@role='main']/div/div/div/div/ol/li[{y}]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/span[1]"
-
-                # Grab a text file from company object
-                company_obj = wait.until(EC.presence_of_element_located((By.XPATH, company_obj_xpath))).text
-                position = wait.until(EC.presence_of_element_located((By.XPATH, position_xpath))).text
-                company = company_obj.replace(position+" ", "")
-
-            # ------ After  : Do comparison action here ------ #
-                print("Position: " + position, "|", "Company: " + company)                                 # print- position & company
-                #print(temp_compamny + "----" + company)
-                if company.replace(" ", "").lower() == temp_compamny.replace(" ","").lower(): # added strip method to erase the blank
-                    companys_list.append(y)
-                    position_list.append(position)
-                    print("\n" + str(companys_list) + "\n")
-
-                    # Mark in List
-            # ------ Before : Do comparison action here ------ #
-            except NoSuchElementException:
-                break
-                # Check Title and Company List
-        # title_list = ['Chairman of the Board','President & CEO', 'CEO', 'Co-Founder', 'Business Owner', 'Director Contract Manufacturing', 'Owner', 'COO', 'Principal Engineer', 'Founder', 'Sales Supervisor', 'Sales Closer', 'Sales Representative', 'Director of Operations', 'Principal', 'President of Operations', 'Chief Executive Officer', 'CTO', 'Business Development Lead', 'Marketing Executive', 'CEO', 'Chief Executive Officer', 'C.E.O.', 'Founder', 'Co founder', 'Cofounder', 'Director of Development', 'Business Development', 'Retail', 'ecommerce', 'Digital Marketing', 'CMO', 'Chief Marketing Officer', 'CTO', 'Chief Technology Officer', 'Director of Marketing', 'Software', 'Fundraising', 'Partner', 'Donor', 'President', 'Owner', 'Partnership', 'Marketing manager']
-        keyword = ['ceo','president','lead','owner','engineer','senior','chief','partner','director','head',
-                'development','officer','retail','fundraising','cto','cmo','founder','coo','chairman','honor','manager']
-
-        if len(companys_list) == 0:
-            print("No Companies")
-
-        elif len(companys_list) < 3:
-            print("\n" + str(companys_list) + "\n")
-            for m in companys_list:
-                wait.until(EC.element_to_be_clickable((By.XPATH, f"/html[1]/body[1]/main[1]/div[1]/div[2]/div[2]/div[1]/ol[1]/li[{m}]/div[1]/div[1]/div[1]/label[1]"))).click() 
-
-        elif len(companys_list) >= 3:
-            indices_to_pop = []
-            for x in range(len(position_list)):
-                if not any(keyword in position_list[x].lower() for keyword in keyword):
-                    indices_to_pop.append(x)
-            
-            for index in reversed(indices_to_pop):
-                companys_list.pop(index)
-                position_list.pop(index)
-            
-            print("\n" + str(companys_list) + "\n")
-
-            for m in companys_list:
-                try:
-                    wait.until(EC.element_to_be_clickable((By.XPATH, f"/html[1]/body[1]/main[1]/div[1]/div[2]/div[2]/div[1]/ol[1]/li[{m}]/div[1]/div[1]/div[1]/label[1]"))).click() 
-                # except NoSuchElementException:
-                #     continue
-                except ElementNotInteractableException:
-                    pass
-                
-            time.sleep(2)
-
-        # time.sleep(4) # to see the check mark is right on
-        driver.back()                               # Go to the back of the page
-        
-    except TimeoutException:
-        driver.back()                               # Go to the back of the page
-    
+# Find the parent element that contains the list of <li> elements
+parent_element = wait.until(EC.presence_of_element_located((By.XPATH, '/html/body/main/div[1]/div[2]/div[1]/div[2]/div/div[3]/div/div/ul')))
+parent_element.find_element(By.XPATH, '/html/body/main/div[1]/div[2]/div[1]/div[2]/div/div[3]/div/div/ul')
 
 
+# element = driver.find_element("xpath", f'/html[1]/body[1]/main[1]/div[1]/div[2]/div[2]/div[1]/ol[1]/li[{m}]/div[1]/div[1]/div[1]/label[1]')
+# driver.execute_script("arguments[0].scrollIntoView();", element)
+# driver.execute_script("arguments[0].click();", element)
+# print(f"Clicked {m}")
 
-#Get pos
 
+# Scroll down the page to ensure all elements are loaded
+# You can adjust the number of scroll iterations and sleep time as needed
+# for _ in range(10):
+#     parent_element.send_keys(Keys.PAGE_DOWN)
+#     time.sleep(0.5)
 
-# ADD MORE (Look at prevoius CSV to find)
+child_element = wait.until(EC.presence_of_element_located((By.XPATH, '/html/body/main/div[1]/div[2]/div[1]/div[2]/div/div[3]/div/div/ul/li[2]/ul')))
+child_element.find_element(By.XPATH, '/html/body/main/div[1]/div[2]/div[1]/div[2]/div/div[3]/div/div/ul/li[2]/ul')
 
-# ---------------------------------------------------------------------------------------------------------------- #
-## Task Required
-# 1) Auto Navigation for Sales Nav tab [x]
-# 2) Scroll through the page and grab profile [x]
-# 3) Compare correct company with required position [ ]
-#   - May require to find out right company name
-# 4) Press check mark for people who will save [ ]
-# 5) Save people correspond to right folder [ ]
-# ---------------------------------------------------------------------------------------------------------------- #
+child_li = child_element.find_elements(By.TAG_NAME, 'li')
+
+li_count = len(child_li)
+
+print(li_count)
+for i in range(1, li_count + 1):
+    text = child_element.find_element(By.XPATH, f'/html/body/main/div[1]/div[2]/div[1]/div[2]/div/div[3]/div/div/ul/li[2]/ul/li[{i}]/div/div/div[1]').text
+    if text == 'Test leads 2.0':
+        driver.find_element(By.XPATH, f'/html/body/main/div[1]/div[2]/div[1]/div[2]/div/div[3]/div/div/ul/li[2]/ul/li[{i}]').click()
+        break
+
