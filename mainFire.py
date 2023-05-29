@@ -165,6 +165,7 @@ for x in range(len(dfcompany)):
                     except (ElementNotInteractableException,NoSuchElementException):
                         pass
 
+        # If company & position exist, save profile into the folder
         if len(companys_list) > 0:
             save_button = wait.until(EC.presence_of_element_located((By.XPATH, "//button[@aria-label='Save all selected leads to a custom list.']")))
             save_button.click()
@@ -178,14 +179,17 @@ for x in range(len(dfcompany)):
 
             # Count the number of folder list
             li_count = len(child_li)
-
+            
+            # Loop through Folders
             for i in range(1, li_count + 1):
                 target = save_list.find_element(By.XPATH, f'/html/body/main/div[1]/div[2]/div[1]/div[2]/div/div[3]/div/div/ul/li[2]/ul/li[{i}]/div/div/div[1]').text
+                
+                # If target is equal to the folder name, click it.
                 if target == 'Test leads 2.0':
                     driver.find_element(By.XPATH, f'/html/body/main/div[1]/div[2]/div[1]/div[2]/div/div[3]/div/div/ul/li[2]/ul/li[{i}]').click()
                     break
 
-            time.sleep(2)
+            time.sleep(1)
 
         #time.sleep(20) # to see the check mark is right on
         driver.back()                               # Go to the back of the page
