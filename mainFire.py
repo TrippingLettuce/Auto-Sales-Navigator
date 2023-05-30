@@ -59,7 +59,7 @@ fulldf = pd.read_csv(file_path)
 dfcompany = fulldf["Company"]
 
 # save_list folder name
-folder_name = 'Test leads 2.0'
+folder_list = ['10k-25k','Test leads 2.0']
 
 # ---------------------------------------------------------------------------------------------------------------- #
 ## Change the li[index] for tracking
@@ -73,7 +73,6 @@ for x in range(len(dfcompany)):
     #Define the list for company name
     companys_list = []
     position_list = []
-    
 
     try:
         # Wait until the presence of Search Bar element. 
