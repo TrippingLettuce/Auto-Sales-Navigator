@@ -41,17 +41,18 @@ for x in range(len(dfcompany)):
     # Find the search box element by its name attribute
     search_box = wait.until(EC.presence_of_element_located((By.NAME, 'q')))    # Google's search box name is 'q'
     search_box.send_keys(temp_compamny, Keys.ENTER) 
-    time.sleep(2)
 
     wait.until(EC.element_to_be_clickable((By.ID, "res")))
     try:
-        
-        company_obj = wait.until(EC.presence_of_element_located((By.XPATH, "//p[@role='heading']//a[1]"))).is_displayed()
-        print(company_obj)
+        company_obj = wait.until(EC.presence_of_element_located((By.XPATH, "//p[@role='heading']//a[1]"))).text
+        df.loc[x, 'Company'] = company_obj  # Update 'Company' field in your dataframe
     except (ElementNotInteractableException, NoSuchElementException, TimeoutException) as e:
-        driver.back()  # Go to the back of the page
         print(f"No autocorrect element for {temp_compamny} or another issue occurred. Error: {e}")
         driver.back() 
         continue
-
+    
     driver.back()  # Go to the back of the page
+
+# Save dataframe to a new csv
+df.to_csv('/home/lettuce/WorkCode/SalesNavigator/linkedin_from_excel/company_result/filter2.csv', index=False)
+
