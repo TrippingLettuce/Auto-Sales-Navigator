@@ -1,7 +1,7 @@
 # ---------------------------------------------------------------------------------------------------------------- #
 ## Python default import packages.
 # Colorama module: pip install colorama
-# from colorama import init, Fore, Style  # Do not work on MacOS and Linux   ### Uncomment if you are using it.
+# from colorama import init, Fore, Style  # Do not work on MacOS and Linux   #! Uncomment if you are using it.
 
 # Python default import.
 from datetime import datetime as dt
@@ -15,10 +15,9 @@ import numpy as np
 ## Applicable packages for automation
 # Selenium module imports: pip install selenium
 from selenium import webdriver
-from selenium.webdriver.firefox.service import Service as FirefoxService           # Change here
+from selenium.webdriver.firefox.service import Service as FirefoxService           #! Change here for Chrome or Firefox
 from webdriver_manager.firefox import GeckoDriverManager       
 from selenium.webdriver.common.action_chains import ActionChains
-# Change here
 
 # Packages for web control
 from selenium.webdriver.support import expected_conditions as EC
@@ -27,6 +26,7 @@ from selenium.webdriver.support.ui import WebDriverWait as WDW
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 
+# Exception Packages
 from selenium.common.exceptions import NoSuchElementException, ElementNotInteractableException, TimeoutException
 # ---------------------------------------------------------------------------------------------------------------- #
 ## Options for Firefox Browser
@@ -50,16 +50,22 @@ driver.get('https://www.linkedin.com/sales/search/people')
 wait.until(EC.presence_of_element_located((By.XPATH, "//input[@placeholder='Search keywords']"))) # Wait until page load
 
 # ---------------------------------------------------------------------------------------------------------------- #
-## Type the company name
+## Company Data Import
 # Read CSV file (Make sure it is right csv)
 current_dir = os.getcwd()                                                           # Get the current directory
-file_path = current_dir + "/company_result/company_100_500.csv"                     # File name
+file_path = current_dir + "/company_result/company_100_500.csv"                     #! Chagne File name Depends on the company list
 # file_path = "/home/lettuce/WorkCode/SalesNavigator/linkedin_from_excel/company_result/company_100_500.csv"
 fulldf = pd.read_csv(file_path)
 dfcompany = fulldf["Company"]
 
+# DataFrame to check not_found profile company list
+not_found = pd.DataFrame(columns=['Name','Email','Company','Domain'])
+
+
 # save_list folder name
-folder_list = ['10k-25k','Test leads 2.0']
+folder_list = ['100-500 1.0','100-500 2.0','100-500 3.0']                           #! always make more capacity then expectation.
+
+
 
 # ---------------------------------------------------------------------------------------------------------------- #
 ## Change the li[index] for tracking
@@ -92,10 +98,10 @@ for x in range(len(dfcompany)):
             time.sleep(.2) # scroll time
         
         # Loop Through People (24 per page: Maximum element in the page)
-        # for y in range(1, 24):
         # Find the count of <li> elements
         li_count = len(driver.find_elements(By.XPATH, "//ol/li"))
         print(li_count)                 # print- li count
+
         # Define the maximum number of iterations
         max_iterations = min(li_count, 24)
 
@@ -124,11 +130,18 @@ for x in range(len(dfcompany)):
                 break
                 # Check Title and Company List
         # title_list = ['Chairman of the Board','President & CEO', 'CEO', 'Co-Founder', 'Business Owner', 'Director Contract Manufacturing', 'Owner', 'COO', 'Principal Engineer', 'Founder', 'Sales Supervisor', 'Sales Closer', 'Sales Representative', 'Director of Operations', 'Principal', 'President of Operations', 'Chief Executive Officer', 'CTO', 'Business Development Lead', 'Marketing Executive', 'CEO', 'Chief Executive Officer', 'C.E.O.', 'Founder', 'Co founder', 'Cofounder', 'Director of Development', 'Business Development', 'Retail', 'ecommerce', 'Digital Marketing', 'CMO', 'Chief Marketing Officer', 'CTO', 'Chief Technology Officer', 'Director of Marketing', 'Software', 'Fundraising', 'Partner', 'Donor', 'President', 'Owner', 'Partnership', 'Marketing manager']
-        keyword = ['ceo','president','lead','owner','engineer','senior','chief','partner','director','head',
-                'development','officer','executive','retail','fundraising','cto','cmo','founder','coo','chairman','honor']
+        # Define the keyword that we are searching from the position instead
+        keyword = ['ceo','president','lead','owner','engineer','senior','chief','partner','director','head','vp','evp','manager','advisor',
+                'development','officer','executive','retail','fundraising','cto','cmo','founder','coo','chairman','honor','cfo','sr']
 
+        # If no company found from the search, add that company to dataframe to trackdown the list.
         if len(companys_list) == 0:
-            print("No Companies")
+            not_found_company_row = fulldf.iloc[x]
+            add_row = pd.DataFrame([not_found_company_row], columns=not_found.columns)
+
+            # Concatenate the original DataFrame with new row
+            not_found = pd.concat([not_found, add_row], ignore_index=True)
+            print(not_found)
 
         elif len(companys_list) < 3:
             print("\n" + str(companys_list) + "\n")
@@ -181,23 +194,52 @@ for x in range(len(dfcompany)):
             
             # Loop through Folders
             for i in range(1, li_count + 1):
-                target = save_list.find_element(By.XPATH, f'/html/body/main/div[1]/div[2]/div[1]/div[2]/div/div[3]/div/div/ul/li[2]/ul/li[{i}]/div/div/div[1]').text
-                
-                # If target is equal to the folder name, click it.
-                if target == 'Test leads 2.0':
+                try:
+                    # Target folder
+                    target = save_list.find_element(By.XPATH, f'/html/body/main/div[1]/div[2]/div[1]/div[2]/div/div[3]/div/div/ul/li[2]/ul/li[{i}]/div/div/div[1]').text
+                    # Number of profile listed on the folder
+                    storage = save_list.find_element(By.XPATH, f'/html/body/main/div[1]/div[2]/div[1]/div[2]/div/div[3]/div/div/ul/li[2]/ul/li[{i}]/div/div/div[2]').text
+
+                    # Make the storage string into the integer
+                    chars_to_replace = ['(', ',', ')', '*']
+                    for char in chars_to_replace:
+                        storage = storage.replace(char, '')
+                    storage = int(storage)
+
+            # if the folder is full, export csv file of current not_found company list
+                    # if storage == 1000:
+                    #     not_found.to_csv(f'COMPANY_NOT_FOUND/Not_Found_List_Company_100_500{len(folder_list)}.csv', index=False)
+
+            # ---------------------------------------------------------------------------------------------------------------- #
+            # Algorithm for countdown the storage number and save onto right folder
+            # If target == folder_list[0] & ((1000 - storage) > len(companys_list)):
+            #   click the folder
+                    if target == folder_list[0] and ((1000 - storage) >= len(companys_list)):
+                        driver.find_element(By.XPATH, f'/html/body/main/div[1]/div[2]/div[1]/div[2]/div/div[3]/div/div/ul/li[2]/ul/li[{i}]').click()
+                        break
+            # elif target == folder_list[0] & ((1000 - storage) < len(companys_list)):
+            #   folder_list.pop(0) (pop the first list out of it)
+                    elif target == folder_list[0] and ((1000 - storage) < len(companys_list)):
+                        folder_list.pop(0)
+                        driver.find_element(By.XPATH, f'/html/body/main/div[1]/div[2]/div[1]/div[2]/div/div[3]/div/div/ul/li[2]/ul/li[{i+1}]').click()
+
+                except NoSuchElementException:
                     driver.find_element(By.XPATH, f'/html/body/main/div[1]/div[2]/div[1]/div[2]/div/div[3]/div/div/ul/li[2]/ul/li[{i}]').click()
                     break
+            # ---------------------------------------------------------------------------------------------------------------- #
 
-            time.sleep(1)
+            time.sleep(0.5)
 
-        #time.sleep(20) # to see the check mark is right on
+            #! Export the not found list to csv file
+            # not_found.to_csv(f'COMPANY_NOT_FOUND/Not_Found_List_Company_100_500_{count}.csv', index=False)
+
         driver.back()                               # Go to the back of the page
-        
+
     except TimeoutException:
         driver.back()                               # Go to the back of the page
     
 
-
+not_found.to_csv(f'COMPANY_NOT_FOUND/Not_Found_List_Company_100_500.csv', index=False)
 
 #Get pos
 
