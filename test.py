@@ -90,10 +90,27 @@ child_li = child_element.find_elements(By.TAG_NAME, 'li')
 
 li_count = len(child_li)
 
-print(li_count)
-for i in range(1, li_count + 1):
-    text = child_element.find_element(By.XPATH, f'/html/body/main/div[1]/div[2]/div[1]/div[2]/div/div[3]/div/div/ul/li[2]/ul/li[{i}]/div/div/div[1]').text
-    if text == 'Test leads 2.0':
-        driver.find_element(By.XPATH, f'/html/body/main/div[1]/div[2]/div[1]/div[2]/div/div[3]/div/div/ul/li[2]/ul/li[{i}]').click()
-        break
+chars_to_replace = ['(', ',', ')', '*']
 
+# print(li_count)
+# Grabbing the capacity for the folder
+# storage = child_element.find_element(By.XPATH, f'/html/body/main/div[1]/div[2]/div[1]/div[2]/div/div[3]/div/div/ul/li[2]/ul/li[1]/div/div/div[2]').text
+
+# for char in chars_to_replace:
+#     text = text.replace(char, '')
+
+
+# print(storage, storage=='(1,000)*')
+
+for i in range(1, li_count + 1):
+    try:
+        text = child_element.find_element(By.XPATH, f'/html/body/main/div[1]/div[2]/div[1]/div[2]/div/div[3]/div/div/ul/li[2]/ul/li[{i}]/div/div/div[1]').text
+        storage = child_element.find_element(By.XPATH, f'/html/body/main/div[1]/div[2]/div[1]/div[2]/div/div[3]/div/div/ul/li[2]/ul/li[{i}]/div/div/div[2]').text
+
+        print("Folder Name: " + text, "|", "Number: " + storage)
+    # if text == 'Test leads 2.0':
+    #     driver.find_element(By.XPATH, f'/html/body/main/div[1]/div[2]/div[1]/div[2]/div/div[3]/div/div/ul/li[2]/ul/li[{i}]').click()
+    #     break
+    except NoSuchElementException:
+        storage = '0'
+        print("Folder Name: " + text, "|", "Number: " + storage)

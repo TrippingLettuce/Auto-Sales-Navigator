@@ -33,7 +33,7 @@ A compatible web driver for Selenium. The script supports various web drivers, s
 2) Install the required dependencies by navigating to the repository's directory and executing the following command:
 - pip install -r requirements.txt
 
-3) Prepare your Excel file containing the list of company website links. Ensure that the file meets the following requirements:
+3) Prepare your Excel (csv) file containing the list of company website links. Ensure that the file meets the following requirements:
 - The website links should be in a single column.
 - The first row of the column should contain the header "Website" (without quotes).
 - The subsequent rows should contain the website links.
