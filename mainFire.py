@@ -95,7 +95,7 @@ for x in range(len(dfcompany)):
             #Scroll Through Page
         for _ in range(10):  # scroll ammount
             actions.send_keys(Keys.PAGE_DOWN).perform()
-            time.sleep(.2) # scroll time
+            time.sleep(0.2) # scroll time
         
         # Loop Through People (24 per page: Maximum element in the page)
         # Find the count of <li> elements
@@ -146,6 +146,7 @@ for x in range(len(dfcompany)):
         elif len(companys_list) < 3:
             print("\n" + str(companys_list) + "\n")
             for m in companys_list:
+                #### error point!
                 wait.until(EC.element_to_be_clickable((By.XPATH, f"/html[1]/body[1]/main[1]/div[1]/div[2]/div[2]/div[1]/ol[1]/li[{m}]/div[1]/div[1]/div[1]/label[1]"))).click() 
 
         # Commpanys are more than 3
@@ -170,7 +171,9 @@ for x in range(len(dfcompany)):
                         pass
                 elif m > 4:
                     try:
-                        element = driver.find_element("xpath", f'/html[1]/body[1]/main[1]/div[1]/div[2]/div[2]/div[1]/ol[1]/li[{m}]/div[1]/div[1]/div[1]/label[1]')
+                        element = wait.until(EC.element_to_be_clickable((By.XPATH, f'/html[1]/body[1]/main[1]/div[1]/div[2]/div[2]/div[1]/ol[1]/li[{m}]/div[1]/div[1]/div[1]/label[1]')))
+                        element = element.find_element(By.XPATH, f'/html[1]/body[1]/main[1]/div[1]/div[2]/div[2]/div[1]/ol[1]/li[{m}]/div[1]/div[1]/div[1]/label[1]')
+                        # element = driver.find_element("xpath", f'/html[1]/body[1]/main[1]/div[1]/div[2]/div[2]/div[1]/ol[1]/li[{m}]/div[1]/div[1]/div[1]/label[1]')
                         driver.execute_script("arguments[0].scrollIntoView();", element)
                         driver.execute_script("arguments[0].click();", element)
                         print(f"Clicked {m}")
@@ -250,8 +253,9 @@ not_found.to_csv(f'COMPANY_NOT_FOUND/Not_Found_List_Company_100_500.csv', index=
 ## Task Required
 # 1) Auto Navigation for Sales Nav tab [x]
 # 2) Scroll through the page and grab profile [x]
-# 3) Compare correct company with required position [ ]
+# 3) Compare correct company with required position [x]
 #   - May require to find out right company name
 # 4) Press check mark for people who will save [ ]
+#   - Scroll down problem occurred (06/01/23 00:07)
 # 5) Save people correspond to right folder [ ]
 # ---------------------------------------------------------------------------------------------------------------- #
