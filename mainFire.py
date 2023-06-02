@@ -146,9 +146,10 @@ for x in range(len(dfcompany)):
         elif len(companys_list) < 3:
             print("\n" + str(companys_list) + "\n")
             for m in companys_list:
-                #### error point!
-                wait.until(EC.element_to_be_clickable((By.XPATH, f"/html[1]/body[1]/main[1]/div[1]/div[2]/div[2]/div[1]/ol[1]/li[{m}]/div[1]/div[1]/div[1]/label[1]"))).click() 
-
+                temp = wait.until(EC.element_to_be_clickable((By.XPATH, f"/html[1]/body[1]/main[1]/div[1]/div[2]/div[2]/div[1]/ol[1]/li[{m}]/div[1]/div[1]/div[1]/label[1]"))) 
+                temp = temp.find_element(By.XPATH, f"/html[1]/body[1]/main[1]/div[1]/div[2]/div[2]/div[1]/ol[1]/li[{m}]/div[1]/div[1]/div[1]/label[1]")
+                driver.execute_script("arguments[0].click();", temp)
+                
         # Commpanys are more than 3
         elif len(companys_list) >= 3:
             indices_to_pop = []
