@@ -1,7 +1,7 @@
-pandas=2.0.1
+pandas==2.0.1
 
-requests=2.26.0
+requests==2.26.0
 
-selenium=4.9.1
+selenium==4.9.1
 
-webdriver-manager=3.8.6
+webdriver-manager==3.8.6
