@@ -38,12 +38,12 @@ A compatible web driver for Selenium. The script supports various web drivers, s
 - The first row of the column should contain the header "Website" (without quotes).
 - The subsequent rows should contain the website links.
 
-4) Open the main.py file in a text editor and update the following variables at the top of the script:
+4) Open the mainFire.py or mainChrime.py file in a text editor and update the following variables at the top of the script:
 - EXCEL_FILE: Specify the path to your Excel file.
 - SHEET_NAME: Specify the name of the sheet containing the website links.
 - WEB_DRIVER: Specify the web driver you are using (e.g., "chrome" or "firefox").
 - Run the script by executing the following command:
--- python main.py
+-- python mainFire.py or python mainChrome.py
 
 The script will validate the website links, navigate LinkedIn using Selenium, and retrieve the profiles of high-level board members. The retrieved information will be saved to a file named output.txt in the repository's directory.
 
