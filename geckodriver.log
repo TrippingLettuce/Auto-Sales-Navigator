@@ -14989,3 +14989,822 @@ JavaScript error: https://blossomchildrenscenter.com/wp-content/plugins/jquery-m
 JavaScript error: https://blossomchildrenscenter.com/wp-content/plugins/jquery-manager/assets/js/jquery-2.2.4.min.js?ver=1685654043, line 2: Error: Syntax error, unrecognized expression: #formsform?id=CB5E8D9D-E551-42DB-A839-8D2272536800
 console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.google.com."
 JavaScript warning: https://www.google.com/js/th/eee_KjLo8HjJC2kczPWeD_UvQFOi_GikGCFFwzkCqeE.js line 2 > eval line 6258 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+[Child 24551, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager->CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 24551, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager->CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 24551, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager->CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 24551, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager->CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 24551, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager->CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 24551, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager->CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 24551, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager->CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 24551, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager->CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 24551, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager->CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+1685677891476	Marionette	INFO	Stopped listening on port 59709
+1685737750489	geckodriver	INFO	Listening on 127.0.0.1:55068
+1685737750896	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/18/2sgs664j525fq83lhrdhr14c0000gn/T/rust_mozprofileB3pwPS"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1685737751230	Marionette	INFO	Marionette enabled
+1685737751294	Marionette	INFO	Listening on port 55076
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+Read port: 55076
+WebDriver BiDi listening on ws://127.0.0.1:55069
+1685737751363	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+[ERROR glean_core] Error setting metrics feature config: Json(Error("EOF while parsing a value", line: 1, column: 0))
+DevTools listening on ws://127.0.0.1:55069/devtools/browser/3a35f7eb-fcee-49f9-8ed3-e1443a32bb4d
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.linkedin.com."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.linkedin.com."
+JavaScript warning: https://static.licdn.com/sc/h/2j5ibu4rxs73gt2v9jna8d5j4, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://static.licdn.com/sc/h/2j5ibu4rxs73gt2v9jna8d5j4, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://static.licdn.com/sc/h/5jbvjivigr9hg1ob5pxfuty8u, line 18995: unreachable code after return statement
+JavaScript warning: https://static.licdn.com/sc/h/b5bantnm82a6qipa7huskc69y, line 2570: unreachable code after return statement
+1685737755053	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+1685779442394	geckodriver	INFO	Listening on 127.0.0.1:49497
+1685779442812	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/18/2sgs664j525fq83lhrdhr14c0000gn/T/rust_mozprofilerQOckZ"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1685779443182	Marionette	INFO	Marionette enabled
+1685779443284	Marionette	INFO	Listening on port 49505
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+Read port: 49505
+WebDriver BiDi listening on ws://127.0.0.1:49498
+1685779443357	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+[ERROR glean_core] Error setting metrics feature config: Json(Error("EOF while parsing a value", line: 1, column: 0))
+DevTools listening on ws://127.0.0.1:49498/devtools/browser/5d870543-ff88-4b3e-8174-a2635e2bfe01
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.linkedin.com."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.linkedin.com."
+JavaScript warning: https://static.licdn.com/sc/h/2j5ibu4rxs73gt2v9jna8d5j4, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://static.licdn.com/sc/h/2j5ibu4rxs73gt2v9jna8d5j4, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://static.licdn.com/sc/h/72ai0rusezowzmf9px7ozfhvx, line 19012: unreachable code after return statement
+JavaScript warning: https://static.licdn.com/sc/h/1ql9l7zfblc8lf1tgl3s2fiqd, line 2570: unreachable code after return statement
+1685779447859	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+[Child 9019, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (MarionetteCommands, MarionetteCommandsParent:findElement) not sent: !CanSend() || !mManager || !mManager->CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+2023-06-03 01:08:06.450 firefox-bin[9009:1031194] TSM AdjustCapsLockLEDForKeyTransitionHandling - _ISSetPhysicalKeyboardCapsLockLED Inhibit
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+1685779806915	geckodriver	INFO	Listening on 127.0.0.1:49670
+1685779807344	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/18/2sgs664j525fq83lhrdhr14c0000gn/T/rust_mozprofileUyoKOY"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1685779807612	Marionette	INFO	Marionette enabled
+1685779807667	Marionette	INFO	Listening on port 49678
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+WebDriver BiDi listening on ws://127.0.0.1:49671
+Read port: 49678
+1685779807832	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+[ERROR glean_core] Error setting metrics feature config: Json(Error("EOF while parsing a value", line: 1, column: 0))
+DevTools listening on ws://127.0.0.1:49671/devtools/browser/aaffd784-7df8-45f3-8c4e-2353a4df7bcc
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.linkedin.com."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.linkedin.com."
+JavaScript warning: https://static.licdn.com/sc/h/2j5ibu4rxs73gt2v9jna8d5j4, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://static.licdn.com/sc/h/2j5ibu4rxs73gt2v9jna8d5j4, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://static.licdn.com/sc/h/72ai0rusezowzmf9px7ozfhvx, line 19012: unreachable code after return statement
+JavaScript warning: https://static.licdn.com/sc/h/1ql9l7zfblc8lf1tgl3s2fiqd, line 2570: unreachable code after return statement
+1685779816877	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+1685780079883	geckodriver	INFO	Listening on 127.0.0.1:49824
+1685780080311	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/18/2sgs664j525fq83lhrdhr14c0000gn/T/rust_mozprofilefez7Ok"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1685780080583	Marionette	INFO	Marionette enabled
+1685780080634	Marionette	INFO	Listening on port 49834
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+WebDriver BiDi listening on ws://127.0.0.1:49825
+Read port: 49834
+1685780080799	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+[ERROR glean_core] Error setting metrics feature config: Json(Error("EOF while parsing a value", line: 1, column: 0))
+DevTools listening on ws://127.0.0.1:49825/devtools/browser/ff694339-d78e-40dd-9736-b5a08c9307bd
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.linkedin.com."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.linkedin.com."
+JavaScript warning: https://static.licdn.com/sc/h/2j5ibu4rxs73gt2v9jna8d5j4, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://static.licdn.com/sc/h/2j5ibu4rxs73gt2v9jna8d5j4, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://static.licdn.com/sc/h/72ai0rusezowzmf9px7ozfhvx, line 19012: unreachable code after return statement
+JavaScript warning: https://static.licdn.com/sc/h/1ql9l7zfblc8lf1tgl3s2fiqd, line 2570: unreachable code after return statement
+1685780085071	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+1685780589837	geckodriver	INFO	Listening on 127.0.0.1:50042
+1685780590266	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/18/2sgs664j525fq83lhrdhr14c0000gn/T/rust_mozprofile9VWbM8"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1685780590539	Marionette	INFO	Marionette enabled
+1685780590592	Marionette	INFO	Listening on port 50050
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+WebDriver BiDi listening on ws://127.0.0.1:50043
+Read port: 50050
+1685780590783	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+[ERROR glean_core] Error setting metrics feature config: Json(Error("EOF while parsing a value", line: 1, column: 0))
+DevTools listening on ws://127.0.0.1:50043/devtools/browser/2b115107-f1bd-4f19-b678-eb34ffaf962e
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.linkedin.com."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.linkedin.com."
+JavaScript warning: https://static.licdn.com/sc/h/2j5ibu4rxs73gt2v9jna8d5j4, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://static.licdn.com/sc/h/2j5ibu4rxs73gt2v9jna8d5j4, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://static.licdn.com/sc/h/72ai0rusezowzmf9px7ozfhvx, line 19012: unreachable code after return statement
+JavaScript warning: https://static.licdn.com/sc/h/1ql9l7zfblc8lf1tgl3s2fiqd, line 2570: unreachable code after return statement
+1685780595248	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+1685780658246	geckodriver	INFO	Listening on 127.0.0.1:50171
+1685780658683	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/18/2sgs664j525fq83lhrdhr14c0000gn/T/rust_mozprofilemylzaP"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1685780658978	Marionette	INFO	Marionette enabled
+1685780659032	Marionette	INFO	Listening on port 50179
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+Read port: 50179
+WebDriver BiDi listening on ws://127.0.0.1:50172
+1685780659179	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+[ERROR glean_core] Error setting metrics feature config: Json(Error("EOF while parsing a value", line: 1, column: 0))
+DevTools listening on ws://127.0.0.1:50172/devtools/browser/0192ffc0-5edb-44c9-8806-b5e4c7265afe
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.linkedin.com."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.linkedin.com."
+JavaScript warning: https://static.licdn.com/sc/h/2j5ibu4rxs73gt2v9jna8d5j4, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://static.licdn.com/sc/h/2j5ibu4rxs73gt2v9jna8d5j4, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://static.licdn.com/sc/h/72ai0rusezowzmf9px7ozfhvx, line 19012: unreachable code after return statement
+JavaScript warning: https://static.licdn.com/sc/h/1ql9l7zfblc8lf1tgl3s2fiqd, line 2570: unreachable code after return statement
+1685780665033	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+1685780699242	Marionette	WARN	TimedPromise timed out after 500 ms: stacktrace:
+TimedPromise/<@chrome://remote/content/marionette/sync.sys.mjs:221:24
+TimedPromise@chrome://remote/content/marionette/sync.sys.mjs:205:10
+interaction.flushEventLoop@chrome://remote/content/marionette/interaction.sys.mjs:424:10
+webdriverClickElement@chrome://remote/content/marionette/interaction.sys.mjs:173:31
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+1685780841531	geckodriver	INFO	Listening on 127.0.0.1:50308
+1685780841965	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/18/2sgs664j525fq83lhrdhr14c0000gn/T/rust_mozprofilev3c0VU"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1685780842228	Marionette	INFO	Marionette enabled
+1685780842284	Marionette	INFO	Listening on port 50317
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+Read port: 50317
+WebDriver BiDi listening on ws://127.0.0.1:50309
+1685780842433	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+[ERROR glean_core] Error setting metrics feature config: Json(Error("EOF while parsing a value", line: 1, column: 0))
+DevTools listening on ws://127.0.0.1:50309/devtools/browser/f6b4d527-a67b-4dad-8cbf-4f624cdb6f91
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.linkedin.com."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.linkedin.com."
+JavaScript warning: https://static.licdn.com/sc/h/2j5ibu4rxs73gt2v9jna8d5j4, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://static.licdn.com/sc/h/2j5ibu4rxs73gt2v9jna8d5j4, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://static.licdn.com/sc/h/72ai0rusezowzmf9px7ozfhvx, line 19012: unreachable code after return statement
+JavaScript warning: https://static.licdn.com/sc/h/1ql9l7zfblc8lf1tgl3s2fiqd, line 2570: unreachable code after return statement
+1685780847163	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+1685781134475	geckodriver	INFO	Listening on 127.0.0.1:51365
+1685781134909	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/18/2sgs664j525fq83lhrdhr14c0000gn/T/rust_mozprofilehcwVpo"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1685781135192	Marionette	INFO	Marionette enabled
+1685781135247	Marionette	INFO	Listening on port 51373
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+Read port: 51373
+WebDriver BiDi listening on ws://127.0.0.1:51366
+1685781135396	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+[ERROR glean_core] Error setting metrics feature config: Json(Error("EOF while parsing a value", line: 1, column: 0))
+DevTools listening on ws://127.0.0.1:51366/devtools/browser/1d98968a-7248-4ecb-a231-02c4dd773344
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.linkedin.com."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.linkedin.com."
+JavaScript warning: https://static.licdn.com/sc/h/2j5ibu4rxs73gt2v9jna8d5j4, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://static.licdn.com/sc/h/2j5ibu4rxs73gt2v9jna8d5j4, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://static.licdn.com/sc/h/72ai0rusezowzmf9px7ozfhvx, line 19012: unreachable code after return statement
+JavaScript warning: https://static.licdn.com/sc/h/1ql9l7zfblc8lf1tgl3s2fiqd, line 2570: unreachable code after return statement
+1685781139381	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+1685781178125	geckodriver	INFO	Listening on 127.0.0.1:51631
+1685781178556	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/18/2sgs664j525fq83lhrdhr14c0000gn/T/rust_mozprofileSCBgdD"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1685781178828	Marionette	INFO	Marionette enabled
+1685781178885	Marionette	INFO	Listening on port 51643
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+Read port: 51643
+WebDriver BiDi listening on ws://127.0.0.1:51632
+1685781179032	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+[ERROR glean_core] Error setting metrics feature config: Json(Error("EOF while parsing a value", line: 1, column: 0))
+DevTools listening on ws://127.0.0.1:51632/devtools/browser/802245e1-9b3e-41db-b59a-6ed330565439
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.linkedin.com."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.linkedin.com."
+JavaScript warning: https://static.licdn.com/sc/h/2j5ibu4rxs73gt2v9jna8d5j4, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://static.licdn.com/sc/h/2j5ibu4rxs73gt2v9jna8d5j4, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://static.licdn.com/sc/h/72ai0rusezowzmf9px7ozfhvx, line 19012: unreachable code after return statement
+JavaScript warning: https://static.licdn.com/sc/h/1ql9l7zfblc8lf1tgl3s2fiqd, line 2570: unreachable code after return statement
+1685781183551	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+1685781238482	geckodriver	INFO	Listening on 127.0.0.1:51977
+1685781238915	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/18/2sgs664j525fq83lhrdhr14c0000gn/T/rust_mozprofilemgqxRN"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1685781239195	Marionette	INFO	Marionette enabled
+1685781239253	Marionette	INFO	Listening on port 51989
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+Read port: 51989
+WebDriver BiDi listening on ws://127.0.0.1:51978
+1685781239399	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+[ERROR glean_core] Error setting metrics feature config: Json(Error("EOF while parsing a value", line: 1, column: 0))
+DevTools listening on ws://127.0.0.1:51978/devtools/browser/0542bac0-d532-4a42-a297-122049fb237f
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.linkedin.com."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.linkedin.com."
+JavaScript warning: https://static.licdn.com/sc/h/2j5ibu4rxs73gt2v9jna8d5j4, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://static.licdn.com/sc/h/2j5ibu4rxs73gt2v9jna8d5j4, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://static.licdn.com/sc/h/72ai0rusezowzmf9px7ozfhvx, line 19012: unreachable code after return statement
+JavaScript warning: https://static.licdn.com/sc/h/1ql9l7zfblc8lf1tgl3s2fiqd, line 2570: unreachable code after return statement
+1685781243927	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+[Child 11309, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager->CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 11309, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager->CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 11309, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager->CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 11309, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager->CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 11309, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager->CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 11309, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager->CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 11309, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager->CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 11309, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager->CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+1685781267388	Marionette	INFO	Stopped listening on port 51989
+WARNING: A blocker encountered an error while we were waiting.
+          Blocker:  Waiting for ping task
+          Phase: TelemetryController: Waiting for pending ping activity
+          State: (none)
+WARNING: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
+WARNING: addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:727:15
+addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:523:26
+addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:458:15
+setupShutdown@resource://gre/modules/osfile/osfile_async_front.jsm:1548:28
+@resource://gre/modules/osfile/osfile_async_front.jsm:1568:16
+@resource://gre/modules/osfile.jsm:12:30
+@resource://gre/modules/TelemetryStorage.sys.mjs:10:28
+_checkPendingPings@resource://gre/modules/TelemetrySend.sys.mjs:859:17
+setup@resource://gre/modules/TelemetrySend.sys.mjs:799:18
+setup@resource://gre/modules/TelemetrySend.sys.mjs:237:30
+setupTelemetry/this._delayedInitTask<@resource://gre/modules/TelemetryControllerParent.sys.mjs:824:36
+observe@resource://gre/modules/AsyncShutdown.sys.mjs:576:16
+
+console.error: "TelemetryScheduler.shutdown - Already shut down"
+WARNING: A blocker encountered an error while we were waiting.
+          Blocker:  Waiting for ping task
+          Phase: TelemetryController: Waiting for pending ping activity
+          State: (none)
+WARNING: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
+WARNING: addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:727:15
+addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:523:26
+addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:458:15
+setupShutdown@resource://gre/modules/osfile/osfile_async_front.jsm:1548:28
+@resource://gre/modules/osfile/osfile_async_front.jsm:1568:16
+@resource://gre/modules/osfile.jsm:12:30
+@resource://gre/modules/TelemetryStorage.sys.mjs:10:28
+_checkPendingPings@resource://gre/modules/TelemetrySend.sys.mjs:859:17
+setup@resource://gre/modules/TelemetrySend.sys.mjs:799:18
+setup@resource://gre/modules/TelemetrySend.sys.mjs:237:30
+setupTelemetry/this._delayedInitTask<@resource://gre/modules/TelemetryControllerParent.sys.mjs:824:36
+observe@resource://gre/modules/AsyncShutdown.sys.mjs:576:16
+
+WARNING: A blocker encountered an error while we were waiting.
+          Blocker:  Waiting for ping task
+          Phase: TelemetryController: Waiting for pending ping activity
+          State: (none)
+WARNING: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
+WARNING: addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:727:15
+addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:523:26
+addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:458:15
+setupShutdown@resource://gre/modules/osfile/osfile_async_front.jsm:1548:28
+@resource://gre/modules/osfile/osfile_async_front.jsm:1568:16
+@resource://gre/modules/osfile.jsm:12:30
+@resource://gre/modules/TelemetryStorage.sys.mjs:10:28
+_checkPendingPings@resource://gre/modules/TelemetrySend.sys.mjs:859:17
+setup@resource://gre/modules/TelemetrySend.sys.mjs:799:18
+setup@resource://gre/modules/TelemetrySend.sys.mjs:237:30
+setupTelemetry/this._delayedInitTask<@resource://gre/modules/TelemetryControllerParent.sys.mjs:824:36
+observe@resource://gre/modules/AsyncShutdown.sys.mjs:576:16
+
+WARNING: A blocker encountered an error while we were waiting.
+          Blocker:  TelemetryController: shutting down
+          Phase: profile-before-change-telemetry
+          State: Error getting state: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange" at addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:727:15
+addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:523:26
+addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:458:15
+setupShutdown@resource://gre/modules/osfile/osfile_async_front.jsm:1548:28
+@resource://gre/modules/osfile/osfile_async_front.jsm:1568:16
+@resource://gre/modules/osfile.jsm:12:30
+@resource://gre/modules/TelemetryStorage.sys.mjs:10:28
+_checkPendingPings@resource://gre/modules/TelemetrySend.sys.mjs:859:17
+setup@resource://gre/modules/TelemetrySend.sys.mjs:799:18
+setup@resource://gre/modules/TelemetrySend.sys.mjs:237:30
+setupTelemetry/this._delayedInitTask<@resource://gre/modules/TelemetryControllerParent.sys.mjs:824:36
+observe@resource://gre/modules/AsyncShutdown.sys.mjs:576:16
+
+WARNING: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
+WARNING: addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:727:15
+addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:523:26
+addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:458:15
+setupShutdown@resource://gre/modules/osfile/osfile_async_front.jsm:1548:28
+@resource://gre/modules/osfile/osfile_async_front.jsm:1568:16
+@resource://gre/modules/osfile.jsm:12:30
+@resource://gre/modules/TelemetryStorage.sys.mjs:10:28
+_checkPendingPings@resource://gre/modules/TelemetrySend.sys.mjs:859:17
+setup@resource://gre/modules/TelemetrySend.sys.mjs:799:18
+setup@resource://gre/modules/TelemetrySend.sys.mjs:237:30
+setupTelemetry/this._delayedInitTask<@resource://gre/modules/TelemetryControllerParent.sys.mjs:824:36
+observe@resource://gre/modules/AsyncShutdown.sys.mjs:576:16
+
+JavaScript error: resource://gre/modules/AsyncShutdown.sys.mjs, line 727: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
+JavaScript error: resource://gre/modules/AsyncShutdown.sys.mjs, line 727: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
+JavaScript error: resource://gre/modules/AsyncShutdown.sys.mjs, line 727: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
+JavaScript error: resource://gre/modules/AsyncShutdown.sys.mjs, line 727: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
+JavaScript error: resource://gre/modules/AsyncShutdown.sys.mjs, line 727: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
+JavaScript error: resource://gre/modules/AsyncShutdown.sys.mjs, line 727: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
+1685781267681	geckodriver::marionette	ERROR	Failed to close browser connection: Socket is not connected (os error 57)
+1685781326556	geckodriver	INFO	Listening on 127.0.0.1:52221
+1685781326995	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/18/2sgs664j525fq83lhrdhr14c0000gn/T/rust_mozprofileWQht8m"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1685781327287	Marionette	INFO	Marionette enabled
+1685781327341	Marionette	INFO	Listening on port 52229
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+WebDriver BiDi listening on ws://127.0.0.1:52222
+Read port: 52229
+1685781327454	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+[ERROR glean_core] Error setting metrics feature config: Json(Error("EOF while parsing a value", line: 1, column: 0))
+DevTools listening on ws://127.0.0.1:52222/devtools/browser/ee5259be-2200-4544-a52c-2670d9c0fe2d
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.linkedin.com."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.linkedin.com."
+JavaScript warning: https://static.licdn.com/sc/h/2j5ibu4rxs73gt2v9jna8d5j4, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://static.licdn.com/sc/h/2j5ibu4rxs73gt2v9jna8d5j4, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://static.licdn.com/sc/h/72ai0rusezowzmf9px7ozfhvx, line 19012: unreachable code after return statement
+JavaScript warning: https://static.licdn.com/sc/h/1ql9l7zfblc8lf1tgl3s2fiqd, line 2570: unreachable code after return statement
+1685781331180	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+1685818095928	geckodriver	INFO	Listening on 127.0.0.1:54516
+1685818096356	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/18/2sgs664j525fq83lhrdhr14c0000gn/T/rust_mozprofilemX2syP"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1685818096709	Marionette	INFO	Marionette enabled
+1685818096767	Marionette	INFO	Listening on port 54529
+Read port: 54529
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+WebDriver BiDi listening on ws://127.0.0.1:54517
+1685818096843	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+[ERROR glean_core] Error setting metrics feature config: Json(Error("EOF while parsing a value", line: 1, column: 0))
+DevTools listening on ws://127.0.0.1:54517/devtools/browser/ba2a61bf-085f-46ce-8e2c-095d875fa9c0
+JavaScript warning: https://static.licdn.com/sc/h/2j5ibu4rxs73gt2v9jna8d5j4, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://static.licdn.com/sc/h/2j5ibu4rxs73gt2v9jna8d5j4, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.linkedin.com."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.linkedin.com."
+JavaScript warning: https://static.licdn.com/sc/h/72ai0rusezowzmf9px7ozfhvx, line 19012: unreachable code after return statement
+JavaScript warning: https://static.licdn.com/sc/h/1ql9l7zfblc8lf1tgl3s2fiqd, line 2570: unreachable code after return statement
+1685818100849	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+[Child 41602, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager->CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 41602, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager->CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 41602, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager->CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 41602, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager->CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 41602, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager->CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 41602, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager->CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 41602, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager->CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 41602, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager->CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+1685818118636	Marionette	INFO	Stopped listening on port 54529
+WARNING: A blocker encountered an error while we were waiting.
+          Blocker:  Waiting for ping task
+          Phase: TelemetryController: Waiting for pending ping activity
+          State: (none)
+WARNING: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
+WARNING: addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:727:15
+addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:523:26
+addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:458:15
+setupShutdown@resource://gre/modules/osfile/osfile_async_front.jsm:1548:28
+@resource://gre/modules/osfile/osfile_async_front.jsm:1568:16
+@resource://gre/modules/osfile.jsm:12:30
+@resource://gre/modules/TelemetryStorage.sys.mjs:10:28
+_checkPendingPings@resource://gre/modules/TelemetrySend.sys.mjs:859:17
+setup@resource://gre/modules/TelemetrySend.sys.mjs:799:18
+setup@resource://gre/modules/TelemetrySend.sys.mjs:237:30
+setupTelemetry/this._delayedInitTask<@resource://gre/modules/TelemetryControllerParent.sys.mjs:824:36
+observe@resource://gre/modules/AsyncShutdown.sys.mjs:576:16
+
+console.error: "TelemetryScheduler.shutdown - Already shut down"
+WARNING: A blocker encountered an error while we were waiting.
+          Blocker:  Waiting for ping task
+          Phase: TelemetryController: Waiting for pending ping activity
+          State: (none)
+WARNING: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
+WARNING: addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:727:15
+addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:523:26
+addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:458:15
+setupShutdown@resource://gre/modules/osfile/osfile_async_front.jsm:1548:28
+@resource://gre/modules/osfile/osfile_async_front.jsm:1568:16
+@resource://gre/modules/osfile.jsm:12:30
+@resource://gre/modules/TelemetryStorage.sys.mjs:10:28
+_checkPendingPings@resource://gre/modules/TelemetrySend.sys.mjs:859:17
+setup@resource://gre/modules/TelemetrySend.sys.mjs:799:18
+setup@resource://gre/modules/TelemetrySend.sys.mjs:237:30
+setupTelemetry/this._delayedInitTask<@resource://gre/modules/TelemetryControllerParent.sys.mjs:824:36
+observe@resource://gre/modules/AsyncShutdown.sys.mjs:576:16
+
+WARNING: A blocker encountered an error while we were waiting.
+          Blocker:  Waiting for ping task
+          Phase: TelemetryController: Waiting for pending ping activity
+          State: (none)
+WARNING: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
+WARNING: addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:727:15
+addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:523:26
+addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:458:15
+setupShutdown@resource://gre/modules/osfile/osfile_async_front.jsm:1548:28
+@resource://gre/modules/osfile/osfile_async_front.jsm:1568:16
+@resource://gre/modules/osfile.jsm:12:30
+@resource://gre/modules/TelemetryStorage.sys.mjs:10:28
+_checkPendingPings@resource://gre/modules/TelemetrySend.sys.mjs:859:17
+setup@resource://gre/modules/TelemetrySend.sys.mjs:799:18
+setup@resource://gre/modules/TelemetrySend.sys.mjs:237:30
+setupTelemetry/this._delayedInitTask<@resource://gre/modules/TelemetryControllerParent.sys.mjs:824:36
+observe@resource://gre/modules/AsyncShutdown.sys.mjs:576:16
+
+WARNING: A blocker encountered an error while we were waiting.
+          Blocker:  TelemetryController: shutting down
+          Phase: profile-before-change-telemetry
+          State: Error getting state: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange" at addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:727:15
+addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:523:26
+addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:458:15
+setupShutdown@resource://gre/modules/osfile/osfile_async_front.jsm:1548:28
+@resource://gre/modules/osfile/osfile_async_front.jsm:1568:16
+@resource://gre/modules/osfile.jsm:12:30
+@resource://gre/modules/TelemetryStorage.sys.mjs:10:28
+_checkPendingPings@resource://gre/modules/TelemetrySend.sys.mjs:859:17
+setup@resource://gre/modules/TelemetrySend.sys.mjs:799:18
+setup@resource://gre/modules/TelemetrySend.sys.mjs:237:30
+setupTelemetry/this._delayedInitTask<@resource://gre/modules/TelemetryControllerParent.sys.mjs:824:36
+observe@resource://gre/modules/AsyncShutdown.sys.mjs:576:16
+
+WARNING: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
+WARNING: addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:727:15
+addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:523:26
+addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:458:15
+setupShutdown@resource://gre/modules/osfile/osfile_async_front.jsm:1548:28
+@resource://gre/modules/osfile/osfile_async_front.jsm:1568:16
+@resource://gre/modules/osfile.jsm:12:30
+@resource://gre/modules/TelemetryStorage.sys.mjs:10:28
+_checkPendingPings@resource://gre/modules/TelemetrySend.sys.mjs:859:17
+setup@resource://gre/modules/TelemetrySend.sys.mjs:799:18
+setup@resource://gre/modules/TelemetrySend.sys.mjs:237:30
+setupTelemetry/this._delayedInitTask<@resource://gre/modules/TelemetryControllerParent.sys.mjs:824:36
+observe@resource://gre/modules/AsyncShutdown.sys.mjs:576:16
+
+JavaScript error: resource://gre/modules/AsyncShutdown.sys.mjs, line 727: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
+JavaScript error: resource://gre/modules/AsyncShutdown.sys.mjs, line 727: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
+JavaScript error: resource://gre/modules/AsyncShutdown.sys.mjs, line 727: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
+JavaScript error: resource://gre/modules/AsyncShutdown.sys.mjs, line 727: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
+JavaScript error: resource://gre/modules/AsyncShutdown.sys.mjs, line 727: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
+JavaScript error: resource://gre/modules/AsyncShutdown.sys.mjs, line 727: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
+1685820274841	geckodriver	INFO	Listening on 127.0.0.1:63660
+1685820275275	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/18/2sgs664j525fq83lhrdhr14c0000gn/T/rust_mozprofileB1T8vZ"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1685820275555	Marionette	INFO	Marionette enabled
+1685820275610	Marionette	INFO	Listening on port 63672
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+WebDriver BiDi listening on ws://127.0.0.1:63661
+Read port: 63672
+1685820275782	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+[ERROR glean_core] Error setting metrics feature config: Json(Error("EOF while parsing a value", line: 1, column: 0))
+DevTools listening on ws://127.0.0.1:63661/devtools/browser/0af39098-a3e7-4c12-9c04-3bcf4267239c
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.linkedin.com."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.linkedin.com."
+JavaScript warning: https://static.licdn.com/sc/h/2j5ibu4rxs73gt2v9jna8d5j4, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://static.licdn.com/sc/h/2j5ibu4rxs73gt2v9jna8d5j4, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://static.licdn.com/sc/h/72ai0rusezowzmf9px7ozfhvx, line 19012: unreachable code after return statement
+JavaScript warning: https://static.licdn.com/sc/h/1ql9l7zfblc8lf1tgl3s2fiqd, line 2570: unreachable code after return statement
+1685820279708	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+1685820318331	geckodriver	INFO	Listening on 127.0.0.1:63920
+1685820318766	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/18/2sgs664j525fq83lhrdhr14c0000gn/T/rust_mozprofiletBIT78"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1685820319039	Marionette	INFO	Marionette enabled
+1685820319095	Marionette	INFO	Listening on port 63932
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+WebDriver BiDi listening on ws://127.0.0.1:63921
+Read port: 63932
+1685820319244	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+[ERROR glean_core] Error setting metrics feature config: Json(Error("EOF while parsing a value", line: 1, column: 0))
+DevTools listening on ws://127.0.0.1:63921/devtools/browser/b29c9865-4bc8-438f-bdfb-e5ef71c3faaf
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.linkedin.com."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.linkedin.com."
+JavaScript warning: https://static.licdn.com/sc/h/2j5ibu4rxs73gt2v9jna8d5j4, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://static.licdn.com/sc/h/2j5ibu4rxs73gt2v9jna8d5j4, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://static.licdn.com/sc/h/72ai0rusezowzmf9px7ozfhvx, line 19012: unreachable code after return statement
+JavaScript warning: https://static.licdn.com/sc/h/1ql9l7zfblc8lf1tgl3s2fiqd, line 2570: unreachable code after return statement
+1685820323009	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+1685821046797	geckodriver	INFO	Listening on 127.0.0.1:50665
+1685821047247	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/18/2sgs664j525fq83lhrdhr14c0000gn/T/rust_mozprofile38ZQpX"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1685821047503	Marionette	INFO	Marionette enabled
+1685821047556	Marionette	INFO	Listening on port 50673
+Read port: 50673
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+WebDriver BiDi listening on ws://127.0.0.1:50666
+1685821047698	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+[ERROR glean_core] Error setting metrics feature config: Json(Error("EOF while parsing a value", line: 1, column: 0))
+DevTools listening on ws://127.0.0.1:50666/devtools/browser/07d19c28-e777-4599-8fee-463c2965531d
+JavaScript warning: https://static.licdn.com/sc/h/2j5ibu4rxs73gt2v9jna8d5j4, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://static.licdn.com/sc/h/2j5ibu4rxs73gt2v9jna8d5j4, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.linkedin.com."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.linkedin.com."
+JavaScript warning: https://static.licdn.com/sc/h/72ai0rusezowzmf9px7ozfhvx, line 19012: unreachable code after return statement
+JavaScript warning: https://static.licdn.com/sc/h/1ql9l7zfblc8lf1tgl3s2fiqd, line 2570: unreachable code after return statement
+1685821052446	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+1685821465089	geckodriver	INFO	Listening on 127.0.0.1:52511
+1685821465522	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/18/2sgs664j525fq83lhrdhr14c0000gn/T/rust_mozprofileSAjzj8"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1685821465808	Marionette	INFO	Marionette enabled
+1685821465870	Marionette	INFO	Listening on port 52523
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+WebDriver BiDi listening on ws://127.0.0.1:52512
+Read port: 52523
+1685821466053	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+[ERROR glean_core] Error setting metrics feature config: Json(Error("EOF while parsing a value", line: 1, column: 0))
+DevTools listening on ws://127.0.0.1:52512/devtools/browser/af871900-1d5d-4824-a2ff-7e64ce45e94f
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.linkedin.com."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.linkedin.com."
+JavaScript warning: https://static.licdn.com/sc/h/2j5ibu4rxs73gt2v9jna8d5j4, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://static.licdn.com/sc/h/2j5ibu4rxs73gt2v9jna8d5j4, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://static.licdn.com/sc/h/72ai0rusezowzmf9px7ozfhvx, line 19012: unreachable code after return statement
+JavaScript warning: https://static.licdn.com/sc/h/1ql9l7zfblc8lf1tgl3s2fiqd, line 2570: unreachable code after return statement
+1685821470365	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+1685821674489	geckodriver	INFO	Listening on 127.0.0.1:53477
+1685821674925	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/18/2sgs664j525fq83lhrdhr14c0000gn/T/rust_mozprofileCy6ldP"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1685821675202	Marionette	INFO	Marionette enabled
+1685821675258	Marionette	INFO	Listening on port 53489
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+Read port: 53489
+WebDriver BiDi listening on ws://127.0.0.1:53478
+1685821675407	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+[ERROR glean_core] Error setting metrics feature config: Json(Error("EOF while parsing a value", line: 1, column: 0))
+DevTools listening on ws://127.0.0.1:53478/devtools/browser/4f1ff4f0-9cee-424b-837c-21fe489fa058
+JavaScript warning: https://static.licdn.com/sc/h/2j5ibu4rxs73gt2v9jna8d5j4, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://static.licdn.com/sc/h/2j5ibu4rxs73gt2v9jna8d5j4, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.linkedin.com."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.linkedin.com."
+JavaScript warning: https://static.licdn.com/sc/h/72ai0rusezowzmf9px7ozfhvx, line 19012: unreachable code after return statement
+JavaScript warning: https://static.licdn.com/sc/h/1ql9l7zfblc8lf1tgl3s2fiqd, line 2570: unreachable code after return statement
+1685821679597	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+2023-06-03 12:48:35.509 firefox-bin[44672:1305891] TSM AdjustCapsLockLEDForKeyTransitionHandling - _ISSetPhysicalKeyboardCapsLockLED Inhibit
+[Child 44674, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager->CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 44674, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager->CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 44674, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager->CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 44674, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager->CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 44674, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager->CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 44674, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager->CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 44674, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager->CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 44674, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager->CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+1685821715593	Marionette	INFO	Stopped listening on port 50673
+2023-06-03 12:48:36.135 firefox-bin[45113:1310360] TSM AdjustCapsLockLEDForKeyTransitionHandling - _ISSetPhysicalKeyboardCapsLockLED Inhibit
+[Child 45115, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager->CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 45115, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager->CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 45115, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager->CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 45115, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager->CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 45115, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager->CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 45115, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager->CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 45115, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager->CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 45115, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager->CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+1685821716221	Marionette	INFO	Stopped listening on port 52523
+2023-06-03 12:48:38.340 firefox-bin[45363:1313344] TSM AdjustCapsLockLEDForKeyTransitionHandling - _ISSetPhysicalKeyboardCapsLockLED Inhibit
+[Child 45371, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager->CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 45371, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager->CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 45371, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager->CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 45371, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager->CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 45371, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager->CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 45371, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager->CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 45371, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager->CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 45371, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager->CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+1685821718425	Marionette	INFO	Stopped listening on port 53489
+WARNING: A blocker encountered an error while we were waiting.
+          Blocker:  Waiting for ping task
+          Phase: TelemetryController: Waiting for pending ping activity
+          State: (none)
+WARNING: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
+WARNING: addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:727:15
+addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:523:26
+addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:458:15
+setupShutdown@resource://gre/modules/osfile/osfile_async_front.jsm:1548:28
+@resource://gre/modules/osfile/osfile_async_front.jsm:1568:16
+@resource://gre/modules/osfile.jsm:12:30
+@resource://gre/modules/TelemetryStorage.sys.mjs:10:28
+_checkPendingPings@resource://gre/modules/TelemetrySend.sys.mjs:859:17
+setup@resource://gre/modules/TelemetrySend.sys.mjs:799:18
+setup@resource://gre/modules/TelemetrySend.sys.mjs:237:30
+setupTelemetry/this._delayedInitTask<@resource://gre/modules/TelemetryControllerParent.sys.mjs:824:36
+observe@resource://gre/modules/AsyncShutdown.sys.mjs:576:16
+
+console.error: "TelemetryScheduler.shutdown - Already shut down"
+WARNING: A blocker encountered an error while we were waiting.
+          Blocker:  Waiting for ping task
+          Phase: TelemetryController: Waiting for pending ping activity
+          State: (none)
+WARNING: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
+WARNING: addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:727:15
+addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:523:26
+addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:458:15
+setupShutdown@resource://gre/modules/osfile/osfile_async_front.jsm:1548:28
+@resource://gre/modules/osfile/osfile_async_front.jsm:1568:16
+@resource://gre/modules/osfile.jsm:12:30
+@resource://gre/modules/TelemetryStorage.sys.mjs:10:28
+_checkPendingPings@resource://gre/modules/TelemetrySend.sys.mjs:859:17
+setup@resource://gre/modules/TelemetrySend.sys.mjs:799:18
+setup@resource://gre/modules/TelemetrySend.sys.mjs:237:30
+setupTelemetry/this._delayedInitTask<@resource://gre/modules/TelemetryControllerParent.sys.mjs:824:36
+observe@resource://gre/modules/AsyncShutdown.sys.mjs:576:16
+
+WARNING: A blocker encountered an error while we were waiting.
+          Blocker:  Waiting for ping task
+          Phase: TelemetryController: Waiting for pending ping activity
+          State: (none)
+WARNING: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
+WARNING: addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:727:15
+addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:523:26
+addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:458:15
+setupShutdown@resource://gre/modules/osfile/osfile_async_front.jsm:1548:28
+@resource://gre/modules/osfile/osfile_async_front.jsm:1568:16
+@resource://gre/modules/osfile.jsm:12:30
+@resource://gre/modules/TelemetryStorage.sys.mjs:10:28
+_checkPendingPings@resource://gre/modules/TelemetrySend.sys.mjs:859:17
+setup@resource://gre/modules/TelemetrySend.sys.mjs:799:18
+setup@resource://gre/modules/TelemetrySend.sys.mjs:237:30
+setupTelemetry/this._delayedInitTask<@resource://gre/modules/TelemetryControllerParent.sys.mjs:824:36
+observe@resource://gre/modules/AsyncShutdown.sys.mjs:576:16
+
+WARNING: A blocker encountered an error while we were waiting.
+          Blocker:  TelemetryController: shutting down
+          Phase: profile-before-change-telemetry
+          State: Error getting state: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange" at addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:727:15
+addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:523:26
+addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:458:15
+setupShutdown@resource://gre/modules/osfile/osfile_async_front.jsm:1548:28
+@resource://gre/modules/osfile/osfile_async_front.jsm:1568:16
+@resource://gre/modules/osfile.jsm:12:30
+@resource://gre/modules/TelemetryStorage.sys.mjs:10:28
+_checkPendingPings@resource://gre/modules/TelemetrySend.sys.mjs:859:17
+setup@resource://gre/modules/TelemetrySend.sys.mjs:799:18
+setup@resource://gre/modules/TelemetrySend.sys.mjs:237:30
+setupTelemetry/this._delayedInitTask<@resource://gre/modules/TelemetryControllerParent.sys.mjs:824:36
+observe@resource://gre/modules/AsyncShutdown.sys.mjs:576:16
+
+WARNING: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
+WARNING: addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:727:15
+addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:523:26
+addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:458:15
+setupShutdown@resource://gre/modules/osfile/osfile_async_front.jsm:1548:28
+@resource://gre/modules/osfile/osfile_async_front.jsm:1568:16
+@resource://gre/modules/osfile.jsm:12:30
+@resource://gre/modules/TelemetryStorage.sys.mjs:10:28
+_checkPendingPings@resource://gre/modules/TelemetrySend.sys.mjs:859:17
+setup@resource://gre/modules/TelemetrySend.sys.mjs:799:18
+setup@resource://gre/modules/TelemetrySend.sys.mjs:237:30
+setupTelemetry/this._delayedInitTask<@resource://gre/modules/TelemetryControllerParent.sys.mjs:824:36
+observe@resource://gre/modules/AsyncShutdown.sys.mjs:576:16
+
+JavaScript error: resource://gre/modules/AsyncShutdown.sys.mjs, line 727: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
+JavaScript error: resource://gre/modules/AsyncShutdown.sys.mjs, line 727: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
+JavaScript error: resource://gre/modules/AsyncShutdown.sys.mjs, line 727: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
+JavaScript error: resource://gre/modules/AsyncShutdown.sys.mjs, line 727: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
+JavaScript error: resource://gre/modules/AsyncShutdown.sys.mjs, line 727: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
+JavaScript error: resource://gre/modules/AsyncShutdown.sys.mjs, line 727: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
+2023-06-03 12:48:39.763 firefox-bin[43818:1298433] TSM AdjustCapsLockLEDForKeyTransitionHandling - _ISSetPhysicalKeyboardCapsLockLED Inhibit
+[Child 43823, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager->CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 43823, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager->CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 43823, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager->CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 43823, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager->CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 43823, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager->CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 43823, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager->CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 43823, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager->CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+[Child 43823, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager->CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
+1685821719862	Marionette	INFO	Stopped listening on port 63932
+1685821899438	geckodriver	INFO	Listening on 127.0.0.1:54498
+1685821899869	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/18/2sgs664j525fq83lhrdhr14c0000gn/T/rust_mozprofilegq6797"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1685821900125	Marionette	INFO	Marionette enabled
+1685821900182	Marionette	INFO	Listening on port 54510
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+WebDriver BiDi listening on ws://127.0.0.1:54499
+Read port: 54510
+1685821900373	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+[ERROR glean_core] Error setting metrics feature config: Json(Error("EOF while parsing a value", line: 1, column: 0))
+DevTools listening on ws://127.0.0.1:54499/devtools/browser/31d50df3-a396-4ad7-8c22-e4fcd9587bde
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.linkedin.com."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.linkedin.com."
+JavaScript warning: https://static.licdn.com/sc/h/2j5ibu4rxs73gt2v9jna8d5j4, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://static.licdn.com/sc/h/2j5ibu4rxs73gt2v9jna8d5j4, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://static.licdn.com/sc/h/72ai0rusezowzmf9px7ozfhvx, line 19012: unreachable code after return statement
+JavaScript warning: https://static.licdn.com/sc/h/1ql9l7zfblc8lf1tgl3s2fiqd, line 2570: unreachable code after return statement
+1685821904001	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+1685822128763	geckodriver	INFO	Listening on 127.0.0.1:54846
+1685822129201	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/18/2sgs664j525fq83lhrdhr14c0000gn/T/rust_mozprofileWTiN2m"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1685822129464	Marionette	INFO	Marionette enabled
+1685822129518	Marionette	INFO	Listening on port 54854
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+WebDriver BiDi listening on ws://127.0.0.1:54847
+Read port: 54854
+1685822129683	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+[ERROR glean_core] Error setting metrics feature config: Json(Error("EOF while parsing a value", line: 1, column: 0))
+DevTools listening on ws://127.0.0.1:54847/devtools/browser/bd03a5d7-b9de-4c71-912c-39f6fbea8355
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.linkedin.com."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.linkedin.com."
+JavaScript warning: https://static.licdn.com/sc/h/2j5ibu4rxs73gt2v9jna8d5j4, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://static.licdn.com/sc/h/2j5ibu4rxs73gt2v9jna8d5j4, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://static.licdn.com/sc/h/72ai0rusezowzmf9px7ozfhvx, line 19012: unreachable code after return statement
+JavaScript warning: https://static.licdn.com/sc/h/1ql9l7zfblc8lf1tgl3s2fiqd, line 2570: unreachable code after return statement
+1685822134204	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+1685822545246	geckodriver	INFO	Listening on 127.0.0.1:56003
+1685822545679	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/18/2sgs664j525fq83lhrdhr14c0000gn/T/rust_mozprofiledcyY0f"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1685822545956	Marionette	INFO	Marionette enabled
+1685822546008	Marionette	INFO	Listening on port 56015
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+Read port: 56015
+WebDriver BiDi listening on ws://127.0.0.1:56004
+1685822546157	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+[ERROR glean_core] Error setting metrics feature config: Json(Error("EOF while parsing a value", line: 1, column: 0))
+DevTools listening on ws://127.0.0.1:56004/devtools/browser/46e69410-65dd-448a-bc15-f01662c53f78
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.linkedin.com."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.linkedin.com."
+JavaScript warning: https://static.licdn.com/sc/h/2j5ibu4rxs73gt2v9jna8d5j4, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://static.licdn.com/sc/h/2j5ibu4rxs73gt2v9jna8d5j4, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://static.licdn.com/sc/h/72ai0rusezowzmf9px7ozfhvx, line 19012: unreachable code after return statement
+JavaScript warning: https://static.licdn.com/sc/h/1ql9l7zfblc8lf1tgl3s2fiqd, line 2570: unreachable code after return statement
+1685822549442	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.

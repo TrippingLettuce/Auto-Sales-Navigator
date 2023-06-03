@@ -45,7 +45,7 @@ driver.find_element(By.ID, 'password').send_keys('Canyon1949!')
 # ---------------------------------------------------------------------------------------------------------------- #
 ## Sign in button click
 driver.find_element(By.XPATH, "//button[normalize-space()='Sign in']").click()      # Button Click
-time.sleep(15)
+time.sleep(8)
 driver.get('https://www.linkedin.com/sales/search/people')
 wait.until(EC.presence_of_element_located((By.XPATH, "//input[@placeholder='Search keywords']"))) # Wait until page load
 
@@ -53,7 +53,7 @@ wait.until(EC.presence_of_element_located((By.XPATH, "//input[@placeholder='Sear
 ## Company Data Import
 # Read CSV file (Make sure it is right csv)
 current_dir = os.getcwd()                                                           # Get the current directory
-file_path = current_dir + "/company_result/company_100_500.csv"                     #! Chagne File name Depends on the company list
+file_path = current_dir + "/company_result/company_501_1k.csv"                     #! Chagne File name Depends on the company list
 # file_path = "/home/lettuce/WorkCode/SalesNavigator/linkedin_from_excel/company_result/company_100_500.csv"
 fulldf = pd.read_csv(file_path)
 dfcompany = fulldf["Company"]
@@ -63,7 +63,7 @@ not_found = pd.DataFrame(columns=['Name','Email','Company','Domain'])
 
 
 # save_list folder name
-folder_list = ['100-500 1.0','100-500 2.0','100-500 3.0']                           #! always make more capacity then expectation.
+folder_list = ['501-1k 1.0','501-1k 2.0','501-1k 3.0']                           #! always make more capacity then expectation.
 
 
 
@@ -85,11 +85,11 @@ for x in range(len(dfcompany)):
         wait.until(EC.presence_of_element_located((By.XPATH, "//input[@placeholder='Search keywords']"))).send_keys(temp_company, Keys.ENTER)      # Search bar click and type  
         # Wait until the profile element is presence
         text_obj = wait.until(EC.presence_of_element_located((By.XPATH, "//body/main[@role='main']/div/div/div/div/ol/li[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]")))
-        
+
         # Scroll
             #Click Page
-            
-        driver.find_element(By.XPATH, "//div[@id='search-results-container']").click()
+        # driver.find_element(By.XPATH, "//div[@id='search-results-container']").click() ### Error Found
+        driver.find_element(By.XPATH, "//body/main[@role='main']/div/div/div/div/ol/li[1]").click() #
             #Get Driver
         actions = ActionChains(driver)
             #Scroll Through Page
@@ -100,7 +100,7 @@ for x in range(len(dfcompany)):
         # Loop Through People (24 per page: Maximum element in the page)
         # Find the count of <li> elements
         li_count = len(driver.find_elements(By.XPATH, "//ol/li"))
-        print(li_count)                 # print- li count
+        print(li_count)                 # print - li count
 
         # Define the maximum number of iterations
         max_iterations = min(li_count, 24)
@@ -162,15 +162,15 @@ for x in range(len(dfcompany)):
                 position_list.pop(index)
             
             print("\n" + str(companys_list) + "\n")
-            
+        
             for m in companys_list:
-                if m < 4:
+                if m < 3:
                     try:
                         wait.until(EC.element_to_be_clickable((By.XPATH, f"/html[1]/body[1]/main[1]/div[1]/div[2]/div[2]/div[1]/ol[1]/li[{m}]/div[1]/div[1]/div[1]/label[1]"))).click() 
                         print(f"Clicked {m}") 
                     except ElementNotInteractableException:
                         pass
-                elif m > 4:
+                elif m > 3:
                     try:
                         element = wait.until(EC.element_to_be_clickable((By.XPATH, f'/html[1]/body[1]/main[1]/div[1]/div[2]/div[2]/div[1]/ol[1]/li[{m}]/div[1]/div[1]/div[1]/label[1]')))
                         element = element.find_element(By.XPATH, f'/html[1]/body[1]/main[1]/div[1]/div[2]/div[2]/div[1]/ol[1]/li[{m}]/div[1]/div[1]/div[1]/label[1]')
@@ -183,7 +183,7 @@ for x in range(len(dfcompany)):
 
         # If company & position exist, save profile into the folder
         if len(companys_list) > 0:
-            save_button = wait.until(EC.presence_of_element_located((By.XPATH, "//button[@aria-label='Save all selected leads to a custom list.']")))
+            save_button = wait.until(EC.element_to_be_clickable((By.XPATH, "//button[@aria-label='Save all selected leads to a custom list.']")))
             save_button.click()
 
             # Find the parent element that contains the list of <li> elements
@@ -226,7 +226,6 @@ for x in range(len(dfcompany)):
                     elif target == folder_list[0] and ((1000 - storage) < len(companys_list)):
                         folder_list.pop(0)
                         driver.find_element(By.XPATH, f'/html/body/main/div[1]/div[2]/div[1]/div[2]/div/div[3]/div/div/ul/li[2]/ul/li[{i+1}]').click()
-
                 except NoSuchElementException:
                     driver.find_element(By.XPATH, f'/html/body/main/div[1]/div[2]/div[1]/div[2]/div/div[3]/div/div/ul/li[2]/ul/li[{i}]').click()
                     break
@@ -243,7 +242,7 @@ for x in range(len(dfcompany)):
         driver.back()                               # Go to the back of the page
     
 
-not_found.to_csv(f'COMPANY_NOT_FOUND/Not_Found_List_Company_100_500.csv', index=False)
+not_found.to_csv(f'COMPANY_NOT_FOUND/Not_Found_List_Company_501_1k.csv', index=False)      #! change the name as well
 
 #Get pos
 
