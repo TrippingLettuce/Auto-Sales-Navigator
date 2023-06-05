@@ -116,6 +116,9 @@ for x in range(len(dfcompany)):
                 position = wait.until(EC.presence_of_element_located((By.XPATH, position_xpath))).text
                 company = company_obj.replace(position+" ", "")
 
+                if company_obj == "":
+                    continue
+
             # ------ After  : Do comparison action here ------ #
                 # print("Position: " + position, "|", "Company: " + company)                                 # print- position & company
                 #print(temp_compamny + "----" + company)
@@ -131,7 +134,11 @@ for x in range(len(dfcompany)):
                     # Mark in List
             # ------ Before : Do comparison action here ------ #
             except NoSuchElementException:
-                break
+                print('No Such Element Exception -- companys_list')
+                continue
+            except TimeoutException:
+                print('Timeout Exception -- companys_list')
+                continue
                 # Check Title and Company List
         # title_list = ['Chairman of the Board','President & CEO', 'CEO', 'Co-Founder', 'Business Owner', 'Director Contract Manufacturing', 'Owner', 'COO', 'Principal Engineer', 'Founder', 'Sales Supervisor', 'Sales Closer', 'Sales Representative', 'Director of Operations', 'Principal', 'President of Operations', 'Chief Executive Officer', 'CTO', 'Business Development Lead', 'Marketing Executive', 'CEO', 'Chief Executive Officer', 'C.E.O.', 'Founder', 'Co founder', 'Cofounder', 'Director of Development', 'Business Development', 'Retail', 'ecommerce', 'Digital Marketing', 'CMO', 'Chief Marketing Officer', 'CTO', 'Chief Technology Officer', 'Director of Marketing', 'Software', 'Fundraising', 'Partner', 'Donor', 'President', 'Owner', 'Partnership', 'Marketing manager']
         # Define the keyword that we are searching from the position instead
@@ -173,19 +180,25 @@ for x in range(len(dfcompany)):
                         wait.until(EC.element_to_be_clickable((By.XPATH, f"/html[1]/body[1]/main[1]/div[1]/div[2]/div[2]/div[1]/ol[1]/li[{m}]/div[1]/div[1]/div[1]/label[1]"))).click() 
                         print(f"Clicked {m}") 
                     except ElementNotInteractableException:
-                        pass
+                        print(f"Element Not Interactable Exception -- Clicking element m < 3")
+                        continue
+                    except TimeoutException:
+                        print(f"Timeout Exception -- Clicking element m < 3")
+                        continue
                 elif m > 3:
                     try:
                         element = wait.until(EC.element_to_be_clickable((By.XPATH, f'/html[1]/body[1]/main[1]/div[1]/div[2]/div[2]/div[1]/ol[1]/li[{m}]/div[1]/div[1]/div[1]/label[1]')))
                         element = element.find_element(By.XPATH, f'/html[1]/body[1]/main[1]/div[1]/div[2]/div[2]/div[1]/ol[1]/li[{m}]/div[1]/div[1]/div[1]/label[1]')
                         # element = driver.find_element("xpath", f'/html[1]/body[1]/main[1]/div[1]/div[2]/div[2]/div[1]/ol[1]/li[{m}]/div[1]/div[1]/div[1]/label[1]')
-                        driver.execute_script("arguments[0].scrollIntoView();", element)
-                        actions.send_keys(Keys.PAGE_DOWN).perform()
-                        time.sleep(0.2) # scroll time
+                        # driver.execute_script("arguments[0].scrollIntoView();", element)
                         driver.execute_script("arguments[0].click();", element)
                         print(f"Clicked {m}")
                     except (ElementNotInteractableException,NoSuchElementException):
-                        pass
+                        print(f"Element Not Interactable Exception -- Clicking element m > 3")
+                        continue
+                    except TimeoutException:
+                        print(f"Timeout Exception -- Clicking element m > 3")
+                        continue
 
         # If company & position exist, save profile into the folder
         if len(companys_list) > 0:
@@ -236,6 +249,7 @@ for x in range(len(dfcompany)):
                         driver.find_element(By.XPATH, f'/html/body/main/div[1]/div[2]/div[1]/div[2]/div/div[3]/div/div/ul/li[2]/ul/li[{i+1}]').click()
                 except NoSuchElementException:
                     driver.find_element(By.XPATH, f'/html/body/main/div[1]/div[2]/div[1]/div[2]/div/div[3]/div/div/ul/li[2]/ul/li[{i}]').click()
+                    print("NoSuchElementException -- saving to folder")
                     break
             # ---------------------------------------------------------------------------------------------------------------- #
 
@@ -247,6 +261,7 @@ for x in range(len(dfcompany)):
         driver.back()                               # Go to the back of the page
 
     except TimeoutException:
+        print("TimeoutException -- Selenium Timeout")
         driver.back()                               # Go to the back of the page
     
 
