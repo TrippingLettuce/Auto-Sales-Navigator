@@ -30,10 +30,8 @@ from selenium.webdriver.common.keys import Keys
 from selenium.common.exceptions import NoSuchElementException, ElementNotInteractableException, TimeoutException
 # ---------------------------------------------------------------------------------------------------------------- #
 ## Options for Chrome Browser
-## Options for Chrome Browser
 options = webdriver.ChromeOptions()
-options.add_argument("--start-maximized")                                     # Maximize the window tap
-options.add_argument('--ignore-certificate-errors')
+options.accept_insecure_certs = True
 
 # ---------------------------------------------------------------------------------------------------------------- #
 ## Create a new instance of Chrome WebDriver
