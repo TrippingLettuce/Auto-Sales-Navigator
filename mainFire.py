@@ -32,7 +32,7 @@ from selenium.common.exceptions import NoSuchElementException, ElementNotInterac
 ## Options for Firefox Browser
 options = webdriver.FirefoxOptions()
 options.accept_insecure_certs = True
-
+# options.add_argument('-headless')                                                   #! Comment out if you want to see the browser
 # ---------------------------------------------------------------------------------------------------------------- #
 ## Create a new instance of Firefox WebDriver
 driver = webdriver.Firefox(service=FirefoxService(GeckoDriverManager().install()), options=options)     
@@ -45,7 +45,7 @@ driver.find_element(By.ID, 'password').send_keys('Canyon1949!')
 # ---------------------------------------------------------------------------------------------------------------- #
 ## Sign in button click
 driver.find_element(By.XPATH, "//button[normalize-space()='Sign in']").click()      # Button Click
-time.sleep(8)
+time.sleep(15)
 driver.get('https://www.linkedin.com/sales/search/people')
 wait.until(EC.presence_of_element_located((By.XPATH, "//input[@placeholder='Search keywords']"))) # Wait until page load
 
@@ -53,7 +53,7 @@ wait.until(EC.presence_of_element_located((By.XPATH, "//input[@placeholder='Sear
 ## Company Data Import
 # Read CSV file (Make sure it is right csv)
 current_dir = os.getcwd()                                                           # Get the current directory
-file_path = current_dir + "/company_result/company_501_1k.csv"                     #! Chagne File name Depends on the company list
+file_path = current_dir + "/company_result/company_25k_50k_200data.csv"                     #! Chagne File name Depends on the company list
 # file_path = "/home/lettuce/WorkCode/SalesNavigator/linkedin_from_excel/company_result/company_100_500.csv"
 fulldf = pd.read_csv(file_path)
 dfcompany = fulldf["Company"]
@@ -63,7 +63,7 @@ not_found = pd.DataFrame(columns=['Name','Email','Company','Domain'])
 
 
 # save_list folder name
-folder_list = ['501-1k 1.0','501-1k 2.0','501-1k 3.0']                           #! always make more capacity then expectation.
+folder_list = ['25k-50k']                           #! always make more capacity then expectation.
 
 
 
@@ -100,7 +100,7 @@ for x in range(len(dfcompany)):
         # Loop Through People (24 per page: Maximum element in the page)
         # Find the count of <li> elements
         li_count = len(driver.find_elements(By.XPATH, "//ol/li"))
-        print(li_count)                 # print - li count
+        # print(li_count)                 # print - li count
 
         # Define the maximum number of iterations
         max_iterations = min(li_count, 24)
@@ -117,12 +117,16 @@ for x in range(len(dfcompany)):
                 company = company_obj.replace(position+" ", "")
 
             # ------ After  : Do comparison action here ------ #
-                print("Position: " + position, "|", "Company: " + company)                                 # print- position & company
+                # print("Position: " + position, "|", "Company: " + company)                                 # print- position & company
                 #print(temp_compamny + "----" + company)
-                if company.replace(" ", "").lower() == temp_company.replace(" ","").lower(): # added strip method to erase the blank
+                company = company.replace(" ", "").lower()
+                temp_company = temp_company.replace(" ", "").lower()
+
+                if company == temp_company: # added strip method to erase the blank
                     companys_list.append(y)
                     position_list.append(position)
-                    print("\n" + str(companys_list) + "\n")
+                    
+                    # print("\n" + str(companys_list) + "\n")
 
                     # Mark in List
             # ------ Before : Do comparison action here ------ #
@@ -141,7 +145,7 @@ for x in range(len(dfcompany)):
 
             # Concatenate the original DataFrame with new row
             not_found = pd.concat([not_found, add_row], ignore_index=True)
-            print(not_found)
+            # print(not_found)
 
         elif len(companys_list) < 3:
             print("\n" + str(companys_list) + "\n")
@@ -176,6 +180,8 @@ for x in range(len(dfcompany)):
                         element = element.find_element(By.XPATH, f'/html[1]/body[1]/main[1]/div[1]/div[2]/div[2]/div[1]/ol[1]/li[{m}]/div[1]/div[1]/div[1]/label[1]')
                         # element = driver.find_element("xpath", f'/html[1]/body[1]/main[1]/div[1]/div[2]/div[2]/div[1]/ol[1]/li[{m}]/div[1]/div[1]/div[1]/label[1]')
                         driver.execute_script("arguments[0].scrollIntoView();", element)
+                        actions.send_keys(Keys.PAGE_DOWN).perform()
+                        time.sleep(0.2) # scroll time
                         driver.execute_script("arguments[0].click();", element)
                         print(f"Clicked {m}")
                     except (ElementNotInteractableException,NoSuchElementException):
@@ -185,6 +191,8 @@ for x in range(len(dfcompany)):
         if len(companys_list) > 0:
             save_button = wait.until(EC.element_to_be_clickable((By.XPATH, "//button[@aria-label='Save all selected leads to a custom list.']")))
             save_button.click()
+            not_found.to_csv(f'COMPANY_NOT_FOUND/Not_Found_List_Company_25k_50k.csv', index=False)
+
 
             # Find the parent element that contains the list of <li> elements
             save_list = wait.until(EC.presence_of_element_located((By.XPATH, '/html/body/main/div[1]/div[2]/div[1]/div[2]/div/div[3]/div/div/ul/li[2]/ul')))
@@ -242,7 +250,7 @@ for x in range(len(dfcompany)):
         driver.back()                               # Go to the back of the page
     
 
-not_found.to_csv(f'COMPANY_NOT_FOUND/Not_Found_List_Company_501_1k.csv', index=False)      #! change the name as well
+not_found.to_csv(f'COMPANY_NOT_FOUND/Not_Found_List_Company_25k_50k.csv', index=False)      #! change the name as well
 
 #Get pos
 
