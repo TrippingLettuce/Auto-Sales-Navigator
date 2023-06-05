@@ -86,6 +86,8 @@ for x in range(len(dfcompany)):
         # Wait until the profile element is presence
         text_obj = wait.until(EC.presence_of_element_located((By.XPATH, "//body/main[@role='main']/div/div/div/div/ol/li[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]")))
 
+        time.sleep(10)
+        
         # Scroll
             #Click Page
         # driver.find_element(By.XPATH, "//div[@id='search-results-container']").click() ### Error Found
