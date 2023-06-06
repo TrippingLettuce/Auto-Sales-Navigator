@@ -54,8 +54,8 @@ wait.until(EC.presence_of_element_located((By.XPATH, "//input[@placeholder='Sear
 # ---------------------------------------------------------------------------------------------------------------- #
 ## Company Data Import
 # Read CSV file (Make sure it is right csv)
-#current_dir = os.getcwd()                                                           # Get the current directory
-#file_path = current_dir + "/company_result/company_501_1k.csv"                     #! Chagne File name Depends on the company list
+# current_dir = os.getcwd()                                                           # Get the current directory
+# file_path = current_dir + "/company_result/company_5k_10k_nonexist.csv"                     #! Chagne File name Depends on the company list
 file_path = "C:\\Users\\VRLab\\Downloads\\Auto-Sales-Navigator-main\\Auto-Sales-Navigator-main\\company_result\\company_5k_10k_nonexist.csv"
 
 fulldf = pd.read_csv(file_path)
@@ -153,12 +153,20 @@ for x in range(len(dfcompany)):
             not_found = pd.concat([not_found, add_row], ignore_index=True)
             # print(not_found)
 
+        # If only one company found from the search, click the company
         elif len(companys_list) < 3:
-            print("\n" + str(companys_list) + "\n")
+            # print("\n" + str(companys_list) + "\n")
             for m in companys_list:
-                temp = wait.until(EC.element_to_be_clickable((By.XPATH, f"/html[1]/body[1]/main[1]/div[1]/div[2]/div[2]/div[1]/ol[1]/li[{m}]/div[1]/div[1]/div[1]/label[1]"))) 
-                temp = temp.find_element(By.XPATH, f"/html[1]/body[1]/main[1]/div[1]/div[2]/div[2]/div[1]/ol[1]/li[{m}]/div[1]/div[1]/div[1]/label[1]")
-                driver.execute_script("arguments[0].click();", temp)
+                try:
+                    temp = wait.until(EC.element_to_be_clickable((By.XPATH, f"/html[1]/body[1]/main[1]/div[1]/div[2]/div[2]/div[1]/ol[1]/li[{m}]/div[1]/div[1]/div[1]/label[1]"))) 
+                    temp = temp.find_element(By.XPATH, f"/html[1]/body[1]/main[1]/div[1]/div[2]/div[2]/div[1]/ol[1]/li[{m}]/div[1]/div[1]/div[1]/label[1]")
+                    driver.execute_script("arguments[0].click();", temp)
+                except (ElementNotInteractableException,NoSuchElementException):
+                    print(f"Element Not Interactable Exception -- Clicking element m < 3")
+                    continue
+                except TimeoutException:
+                    print(f"Timeout Exception -- Clicking element m < 3")
+                    continue
                 
         # Commpanys are more than 3
         elif len(companys_list) >= 3:
