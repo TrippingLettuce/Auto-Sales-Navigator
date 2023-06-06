@@ -17560,3 +17560,63 @@ webdriverClickElement@chrome://remote/content/marionette/interaction.sys.mjs:173
 [Child 56827, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager->CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
 [Child 56827, Main Thread] WARNING: JSWindowActorChild::SendRawMessage (Conduits, ConduitClosed) not sent: !CanSend() || !mManager || !mManager->CanSend(): file /builds/worker/checkouts/gecko/dom/ipc/jsactor/JSWindowActorChild.cpp:57
 1685990536412	Marionette	INFO	Stopped listening on port 53088
+1685992032993	geckodriver	INFO	Listening on 127.0.0.1:53933
+1685992033446	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/18/2sgs664j525fq83lhrdhr14c0000gn/T/rust_mozprofilees3Oms"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1685992033698	Marionette	INFO	Marionette enabled
+1685992033749	Marionette	INFO	Listening on port 53941
+Read port: 53941
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+WebDriver BiDi listening on ws://127.0.0.1:53934
+1685992033868	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+[ERROR glean_core] Error setting metrics feature config: Json(Error("EOF while parsing a value", line: 1, column: 0))
+DevTools listening on ws://127.0.0.1:53934/devtools/browser/842b11b8-4135-46e2-a865-119d977067b2
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.linkedin.com."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.linkedin.com."
+JavaScript warning: https://static.licdn.com/sc/h/2j5ibu4rxs73gt2v9jna8d5j4, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://static.licdn.com/sc/h/2j5ibu4rxs73gt2v9jna8d5j4, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://static.licdn.com/sc/h/53pvxhwnu4814i1e9beje3cqa, line 89: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://client-api.arkoselabs.com/cdn/fc/js/6af2c0d87b9879cbf3365be1a208293f84d37b1e/standard/funcaptcha_api.js?onload=loadChallenge, line 2: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+console.error: (new TypeError("lazy.AsyncShutdown.profileBeforeChange is undefined", "resource://services-settings/Database.sys.mjs", 599))
+JavaScript warning: https://static.licdn.com/sc/h/fvfdfeam7mrm4b7buac6pa8p, line 19012: unreachable code after return statement
+JavaScript warning: https://static.licdn.com/sc/h/40skjlog6hwxn0lipsurzoct1, line 2570: unreachable code after return statement
+1685992047658	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+1685993897924	geckodriver	INFO	Listening on 127.0.0.1:54915
+1685993898361	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/18/2sgs664j525fq83lhrdhr14c0000gn/T/rust_mozprofile2Hff9B"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1685993898658	Marionette	INFO	Marionette enabled
+1685993898710	Marionette	INFO	Listening on port 54925
+console.error: "Warning: unrecognized command line flag -remote-allow-hosts\n"
+Read port: 54925
+WebDriver BiDi listening on ws://127.0.0.1:54916
+1685993898858	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+[ERROR glean_core] Error setting metrics feature config: Json(Error("EOF while parsing a value", line: 1, column: 0))
+DevTools listening on ws://127.0.0.1:54916/devtools/browser/7360ab55-c210-46a7-a879-886dd4524c3f
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.linkedin.com."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.linkedin.com."
+JavaScript warning: https://static.licdn.com/sc/h/2j5ibu4rxs73gt2v9jna8d5j4, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://static.licdn.com/sc/h/2j5ibu4rxs73gt2v9jna8d5j4, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://static.licdn.com/sc/h/53pvxhwnu4814i1e9beje3cqa, line 89: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://client-api.arkoselabs.com/cdn/fc/js/6af2c0d87b9879cbf3365be1a208293f84d37b1e/standard/funcaptcha_api.js?onload=loadChallenge, line 2: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+console.error: (new TypeError("lazy.AsyncShutdown.profileBeforeChange is undefined", "resource://services-settings/Database.sys.mjs", 599))
+JavaScript warning: https://static.licdn.com/sc/h/fvfdfeam7mrm4b7buac6pa8p, line 19012: unreachable code after return statement
+JavaScript warning: https://static.licdn.com/sc/h/40skjlog6hwxn0lipsurzoct1, line 2570: unreachable code after return statement
+1685993912585	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.

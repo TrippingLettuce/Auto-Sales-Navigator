@@ -243,12 +243,14 @@ for x in range(len(dfcompany)):
             #   click the folder
                     if target == folder_list[0] and ((1000 - storage) >= len(companys_list)):
                         driver.find_element(By.XPATH, f'/html/body/main/div[1]/div[2]/div[1]/div[2]/div/div[3]/div/div/ul/li[2]/ul/li[{i}]').click()
+                        print('Saved Profile')
                         break
             # elif target == folder_list[0] & ((1000 - storage) < len(companys_list)):
             #   folder_list.pop(0) (pop the first list out of it)
                     elif target == folder_list[0] and ((1000 - storage) < len(companys_list)):
                         folder_list.pop(0)
                         driver.find_element(By.XPATH, f'/html/body/main/div[1]/div[2]/div[1]/div[2]/div/div[3]/div/div/ul/li[2]/ul/li[{i+1}]').click()
+                        print('Saved Profile')
                 except NoSuchElementException:
                     driver.find_element(By.XPATH, f'/html/body/main/div[1]/div[2]/div[1]/div[2]/div/div[3]/div/div/ul/li[2]/ul/li[{i}]').click()
                     print("NoSuchElementException -- saving to folder")

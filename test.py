@@ -73,8 +73,8 @@ folder_list = ['200k-up']                           #! always make more capacity
 
 # Click the search bar and type company name
 # Get each company name For loop
-# for x in range(len(dfcompany)):
-for x in range(1):
+for x in range(len(dfcompany)):
+# for x in range(1):
     print(dfcompany[x])                 # print- company name
     temp_company = dfcompany[x]
     #Define the list for company name
@@ -120,8 +120,8 @@ for x in range(1):
                     print('no element')
                     continue
 
-                print(company_obj)
-                print(position)
+                # print(company_obj)
+                # print(position)
 
                 company = company_obj.replace(position+" ", "")
 
@@ -130,10 +130,10 @@ for x in range(1):
                 #print(temp_compamny + "----" + company)
                 company = company.replace(" ", "").lower()
                 temp_company = temp_company.replace(" ", "").lower()
-                print(company == temp_company)
+                # print(company == temp_company)
                 
-                print(company)
-                print(temp_company)
+                # print(company)
+                # print(temp_company)
                 
                 if company == temp_company: # added strip method to erase the blank
                     companys_list.append(y)
@@ -156,8 +156,8 @@ for x in range(1):
                 'development','officer','executive','retail','fundraising','cto','cmo','founder','coo','chairman','honor','cfo','sr']
 
 
-        print(companys_list, '----')
-        print(len(companys_list), '----')
+        # print(companys_list, '----')
+        # print(len(companys_list), '----')
 
 
         # If no company found from the search, add that company to dataframe to trackdown the list.
@@ -188,7 +188,7 @@ for x in range(1):
                 position_list.pop(index)
             
             print("\n" + str(companys_list) + "\n")
-            print(len(companys_list), '----')
+            # print(len(companys_list), '----')
 
             for m in companys_list:
                 if m < 3:
@@ -220,7 +220,7 @@ for x in range(1):
         if len(companys_list) > 0:
             save_button = wait.until(EC.element_to_be_clickable((By.XPATH, "//button[@aria-label='Save all selected leads to a custom list.']")))
             save_button.click()
-            not_found.to_csv(f'COMPANY_NOT_FOUND/Not_Found_List_Company_200k-up.csv', index=False)
+            # not_found.to_csv(f'COMPANY_NOT_FOUND/Not_Found_List_Company_200k-up.csv', index=False)
 
 
             # Find the parent element that contains the list of <li> elements
