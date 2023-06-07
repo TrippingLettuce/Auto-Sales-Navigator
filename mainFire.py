@@ -127,9 +127,13 @@ for x in range(len(dfcompany)):
                 company = company.replace(" ", "").lower()
                 temp_company = temp_company.replace(" ", "").lower()
 
-                if company == temp_company: # added strip method to erase the blank
-                    companys_list.append(y)
-                    position_list.append(position)
+                suffixes = ['inc','co','company','llc','lc','corp','foundation','llc & partners','incorp','services']
+
+                for suffix in suffixes:
+                    if company == temp_company or company + suffix == temp_company: # added strip method to erase the blank
+                        companys_list.append(y)
+                        position_list.append(position)
+                        print("\n" + str(companys_list) + "\n")
                     
                     # print("\n" + str(companys_list) + "\n")
 

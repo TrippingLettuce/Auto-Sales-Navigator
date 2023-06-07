@@ -120,14 +120,20 @@ for x in range(len(dfcompany)):
                     continue
                 
                 company = company.replace(" ", "").lower()
+                company = company.replace('.','')
                 temp_company = temp_company.replace(" ", "").lower()
+                temp_company = temp_company.replace('.','')
             # ------ After  : Do comparison action here ------ #
                 # print("Position: " + position, "|", "Company: " + company)                                 # print- position & company
                 #print(temp_compamny + "----" + company)
-                if company == temp_company: # added strip method to erase the blank
-                    companys_list.append(y)
-                    position_list.append(position)
-                    print("\n" + str(companys_list) + "\n")
+                
+                suffixes = ['inc','co','company','llc','lc','corp','foundation','llc & partners','incorp','services']
+
+                for suffix in suffixes:
+                    if company == temp_company or company + suffix == temp_company: # added strip method to erase the blank
+                        companys_list.append(y)
+                        position_list.append(position)
+                        print("\n" + str(companys_list) + "\n")
 
                     # Mark in List
             # ------ Before : Do comparison action here ------ #
