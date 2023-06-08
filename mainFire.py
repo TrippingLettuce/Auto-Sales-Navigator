@@ -64,7 +64,7 @@ not_found = pd.DataFrame(columns=['Name','Email','Company','Domain'])
 
 # save_list folder name
 folder_list = ['25k-50k']                           #! always make more capacity then expectation.
-
+save_csv = 'company_25k_50k.csv'                                #! always make more capacity then expectation.
 
 
 # ---------------------------------------------------------------------------------------------------------------- #
@@ -85,8 +85,7 @@ for x in range(len(dfcompany)):
         wait.until(EC.presence_of_element_located((By.XPATH, "//input[@placeholder='Search keywords']"))).send_keys(temp_company, Keys.ENTER)      # Search bar click and type  
         # Wait until the profile element is presence
         text_obj = wait.until(EC.presence_of_element_located((By.XPATH, "//body/main[@role='main']/div/div/div/div/ol/li[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]")))
-
-        time.sleep(10)
+        time.sleep(15)
         
         # Scroll
             #Click Page
@@ -121,11 +120,16 @@ for x in range(len(dfcompany)):
                 if company_obj == "":
                     continue
 
+                company = company.replace(" ", "").lower()
+                company = company.replace('.','')
+                company = company.replace(',','')
+                temp_company = temp_company.replace(" ", "").lower()
+                temp_company = temp_company.replace('.','')
+                temp_company = temp_company.replace(',','')
+
             # ------ After  : Do comparison action here ------ #
                 # print("Position: " + position, "|", "Company: " + company)                                 # print- position & company
                 #print(temp_compamny + "----" + company)
-                company = company.replace(" ", "").lower()
-                temp_company = temp_company.replace(" ", "").lower()
 
                 suffixes = ['inc','co','company','llc','lc','corp','foundation','llc & partners','incorp','services']
 
@@ -134,7 +138,7 @@ for x in range(len(dfcompany)):
                         companys_list.append(y)
                         position_list.append(position)
                         print("\n" + str(companys_list) + "\n")
-                    
+                        break
                     # print("\n" + str(companys_list) + "\n")
 
                     # Mark in List
@@ -188,37 +192,25 @@ for x in range(len(dfcompany)):
             print("\n" + str(companys_list) + "\n")
         
             for m in companys_list:
-                if m < 3:
-                    try:
-                        wait.until(EC.element_to_be_clickable((By.XPATH, f"/html[1]/body[1]/main[1]/div[1]/div[2]/div[2]/div[1]/ol[1]/li[{m}]/div[1]/div[1]/div[1]/label[1]"))).click() 
-                        print(f"Clicked {m}") 
-                    except ElementNotInteractableException:
-                        print(f"Element Not Interactable Exception -- Clicking element m < 3")
-                        continue
-                    except TimeoutException:
-                        print(f"Timeout Exception -- Clicking element m < 3")
-                        continue
-                elif m > 3:
-                    try:
-                        element = wait.until(EC.element_to_be_clickable((By.XPATH, f'/html[1]/body[1]/main[1]/div[1]/div[2]/div[2]/div[1]/ol[1]/li[{m}]/div[1]/div[1]/div[1]/label[1]')))
-                        element = element.find_element(By.XPATH, f'/html[1]/body[1]/main[1]/div[1]/div[2]/div[2]/div[1]/ol[1]/li[{m}]/div[1]/div[1]/div[1]/label[1]')
-                        # element = driver.find_element("xpath", f'/html[1]/body[1]/main[1]/div[1]/div[2]/div[2]/div[1]/ol[1]/li[{m}]/div[1]/div[1]/div[1]/label[1]')
-                        # driver.execute_script("arguments[0].scrollIntoView();", element)
-                        driver.execute_script("arguments[0].click();", element)
-                        print(f"Clicked {m}")
-                    except (ElementNotInteractableException,NoSuchElementException):
-                        print(f"Element Not Interactable Exception -- Clicking element m > 3")
-                        continue
-                    except TimeoutException:
-                        print(f"Timeout Exception -- Clicking element m > 3")
-                        continue
+                try:
+                    element = wait.until(EC.element_to_be_clickable((By.XPATH, f'/html[1]/body[1]/main[1]/div[1]/div[2]/div[2]/div[1]/ol[1]/li[{m}]/div[1]/div[1]/div[1]/label[1]')))
+                    element = element.find_element(By.XPATH, f'/html[1]/body[1]/main[1]/div[1]/div[2]/div[2]/div[1]/ol[1]/li[{m}]/div[1]/div[1]/div[1]/label[1]')
+                    # element = driver.find_element("xpath", f'/html[1]/body[1]/main[1]/div[1]/div[2]/div[2]/div[1]/ol[1]/li[{m}]/div[1]/div[1]/div[1]/label[1]')
+                    # driver.execute_script("arguments[0].scrollIntoView();", element)
+                    driver.execute_script("arguments[0].click();", element)
+                    print(f"Clicked {m}")
+                except (ElementNotInteractableException,NoSuchElementException):
+                    print(f"Element Not Interactable Exception -- m_company")
+                    continue
+                except TimeoutException:
+                    print(f"Timeout Exception -- m_company")
+                    continue
 
         # If company & position exist, save profile into the folder
         if len(companys_list) > 0:
             save_button = wait.until(EC.element_to_be_clickable((By.XPATH, "//button[@aria-label='Save all selected leads to a custom list.']")))
             save_button.click()
-            not_found.to_csv(f'COMPANY_NOT_FOUND/Not_Found_List_Company_25k_50k.csv', index=False)
-
+            not_found.to_csv(f'COMPANY_NOT_FOUND/{save_csv}', index=False)
 
             # Find the parent element that contains the list of <li> elements
             save_list = wait.until(EC.presence_of_element_located((By.XPATH, '/html/body/main/div[1]/div[2]/div[1]/div[2]/div/div[3]/div/div/ul/li[2]/ul')))
@@ -243,11 +235,6 @@ for x in range(len(dfcompany)):
                     for char in chars_to_replace:
                         storage = storage.replace(char, '')
                     storage = int(storage)
-
-            # if the folder is full, export csv file of current not_found company list
-                    # if storage == 1000:
-                    #     not_found.to_csv(f'COMPANY_NOT_FOUND/Not_Found_List_Company_100_500{len(folder_list)}.csv', index=False)
-
             # ---------------------------------------------------------------------------------------------------------------- #
             # Algorithm for countdown the storage number and save onto right folder
             # If target == folder_list[0] & ((1000 - storage) > len(companys_list)):
@@ -280,20 +267,14 @@ for x in range(len(dfcompany)):
         driver.back()                               # Go to the back of the page
     
 
-not_found.to_csv(f'COMPANY_NOT_FOUND/Not_Found_List_Company_25k_50k.csv', index=False)      #! change the name as well
-
-#Get pos
-
-
-# ADD MORE (Look at prevoius CSV to find)
-
+# save the not found list to csv file
+not_found.to_csv(f'COMPANY_NOT_FOUND/{save_csv}', index=False)      #! change the name as well
 # ---------------------------------------------------------------------------------------------------------------- #
 ## Task Required
 # 1) Auto Navigation for Sales Nav tab [x]
 # 2) Scroll through the page and grab profile [x]
 # 3) Compare correct company with required position [x]
 #   - May require to find out right company name
-# 4) Press check mark for people who will save [ ]
-#   - Scroll down problem occurred (06/01/23 00:07)
-# 5) Save people correspond to right folder [ ]
+# 4) Press check mark for people who will save [x]
+# 5) Save people correspond to right folder [x]
 # ---------------------------------------------------------------------------------------------------------------- #

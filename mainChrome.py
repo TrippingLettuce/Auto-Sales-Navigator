@@ -129,7 +129,7 @@ for x in range(len(dfcompany)):
                 temp_company = temp_company.replace(',','')
             # ------ After  : Do comparison action here ------ #
                 # print("Position: " + position, "|", "Company: " + company)                                 # print- position & company
-                print(temp_company + "----" + company)
+                # print(temp_company + "----" + company)
                 
                 suffixes = ['inc','co','company','llc','lc','corp','foundation','llc & partners','incorp','services']
 
