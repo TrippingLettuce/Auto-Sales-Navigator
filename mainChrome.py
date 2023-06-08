@@ -56,7 +56,7 @@ wait.until(EC.presence_of_element_located((By.XPATH, "//input[@placeholder='Sear
 # Read CSV file (Make sure it is right csv)
 # current_dir = os.getcwd()                                                           # Get the current directory
 # file_path = current_dir + "/company_result/company_5k_10k_nonexist.csv"                     #! Chagne File name Depends on the company list
-file_path = "C:\\Users\\VRLab\\Downloads\\Auto-Sales-Navigator-main\\Auto-Sales-Navigator-main\\company_result\\company_5k_10k_nonexist.csv"
+file_path = "C:\\Users\\VRLab\\Downloads\\Auto-Sales-Navigator-main\\Auto-Sales-Navigator-main\\company_result\\company_25k_50k_nonexist.csv"
 
 fulldf = pd.read_csv(file_path)
 dfcompany = fulldf["Company"]
@@ -65,7 +65,8 @@ dfcompany = fulldf["Company"]
 not_found = pd.DataFrame(columns=['Name','Email','Company','Domain'])
 
 # save_list folder name
-folder_list = ['5k-10k 1.0']                           #! always make more capacity then expectation.
+folder_list = ['25k-50k 1.0', '25k-50k 2.0', '25k-50k 3.0']                           #! always make more capacity then expectation.
+save_csv_name = 'Not_Found_List_company_25k_50k_2.csv'
 # ---------------------------------------------------------------------------------------------------------------- #
 
 ## Change the li[index] for tracking
@@ -73,7 +74,8 @@ folder_list = ['5k-10k 1.0']                           #! always make more capac
 
 # Click the search bar and type company name
 # Get each company name For loop
-for x in range(len(dfcompany)):
+# for x in range(len(dfcompany)):
+for x in range(1):
     print(dfcompany[x])                 # print- company name
     temp_company = dfcompany[x]
     #Define the list for company name
@@ -85,7 +87,7 @@ for x in range(len(dfcompany)):
         wait.until(EC.presence_of_element_located((By.XPATH, "//input[@placeholder='Search keywords']"))).send_keys(temp_company, Keys.ENTER)      # Search bar click and type  
         # Wait until the profile element is presence
         text_obj = wait.until(EC.presence_of_element_located((By.XPATH, "//body/main[@role='main']/div/div/div/div/ol/li[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]")))
-        time.sleep(10)
+        time.sleep(15)
         # Scroll
             #Click Page
         # driver.find_element(By.XPATH, "//div[@id='search-results-container']").click() ### Error Found
@@ -93,7 +95,7 @@ for x in range(len(dfcompany)):
             #Get Driver
         actions = ActionChains(driver)
             #Scroll Through Page
-        for _ in range(10):  # scroll ammount
+        for _ in range(15):  # scroll ammount
             actions.send_keys(Keys.PAGE_DOWN).perform()
             time.sleep(0.2) # scroll time
         
@@ -121,20 +123,22 @@ for x in range(len(dfcompany)):
                 
                 company = company.replace(" ", "").lower()
                 company = company.replace('.','')
+                company = company.replace(',','')
                 temp_company = temp_company.replace(" ", "").lower()
                 temp_company = temp_company.replace('.','')
+                temp_company = temp_company.replace(',','')
             # ------ After  : Do comparison action here ------ #
                 # print("Position: " + position, "|", "Company: " + company)                                 # print- position & company
-                #print(temp_compamny + "----" + company)
+                print(temp_company + "----" + company)
                 
                 suffixes = ['inc','co','company','llc','lc','corp','foundation','llc & partners','incorp','services']
 
                 for suffix in suffixes:
-                    if company == temp_company or company + suffix == temp_company: # added strip method to erase the blank
+                    if company == temp_company or (temp_company + suffix == company): # added strip method to erase the blank
                         companys_list.append(y)
                         position_list.append(position)
                         print("\n" + str(companys_list) + "\n")
-
+                        break
                     # Mark in List
             # ------ Before : Do comparison action here ------ #
             except NoSuchElementException:
@@ -168,7 +172,7 @@ for x in range(len(dfcompany)):
                     temp = temp.find_element(By.XPATH, f"/html[1]/body[1]/main[1]/div[1]/div[2]/div[2]/div[1]/ol[1]/li[{m}]/div[1]/div[1]/div[1]/label[1]")
                     driver.execute_script("arguments[0].click();", temp)
                 except (ElementNotInteractableException,NoSuchElementException):
-                    print(f"Element Not Interactable Exception -- Clicking element m < 3")
+                    print(f"Element Not Interactable Exception -- Clicking element m < 3 - 1")
                     continue
                 except TimeoutException:
                     print(f"Timeout Exception -- Clicking element m < 3")
@@ -186,37 +190,51 @@ for x in range(len(dfcompany)):
                 position_list.pop(index)
             
             print("\n" + str(companys_list) + "\n")
-        
+            print(len(companys_list), '---', companys_list)
             for m in companys_list:
-                if m < 3:
-                    try:
-                        wait.until(EC.element_to_be_clickable((By.XPATH, f"/html[1]/body[1]/main[1]/div[1]/div[2]/div[2]/div[1]/ol[1]/li[{m}]/div[1]/div[1]/div[1]/label[1]"))).click() 
-                        print(f"Clicked {m}") 
-                    except ElementNotInteractableException:
-                        print(f"Element Not Interactable Exception -- Clicking element m < 3")
-                        continue
-                    except TimeoutException:
-                        print(f"Timeout Exception -- Clicking element m < 3")
-                        continue
-                elif m > 3:
-                    try:
-                        element = wait.until(EC.element_to_be_clickable((By.XPATH, f'/html[1]/body[1]/main[1]/div[1]/div[2]/div[2]/div[1]/ol[1]/li[{m}]/div[1]/div[1]/div[1]/label[1]')))
-                        element = element.find_element(By.XPATH, f'/html[1]/body[1]/main[1]/div[1]/div[2]/div[2]/div[1]/ol[1]/li[{m}]/div[1]/div[1]/div[1]/label[1]')
-                        # element = driver.find_element("xpath", f'/html[1]/body[1]/main[1]/div[1]/div[2]/div[2]/div[1]/ol[1]/li[{m}]/div[1]/div[1]/div[1]/label[1]')
-                        # driver.execute_script("arguments[0].scrollIntoView();", element)
-                        driver.execute_script("arguments[0].click();", element)
-                        print(f"Clicked {m}")
-                    except (ElementNotInteractableException,NoSuchElementException):
-                        print(f"Element Not Interactable Exception -- Clicking element m > 3")
-                        continue
-                    except TimeoutException:
-                        print(f"Timeout Exception -- Clicking element m > 3")
-                        continue
+                # if m < 3:
+                #     try:
+                #         wait.until(EC.element_to_be_clickable((By.XPATH, f"/html[1]/body[1]/main[1]/div[1]/div[2]/div[2]/div[1]/ol[1]/li[{m}]/div[1]/div[1]/div[1]/label[1]"))).click() 
+                #         print(f"Clicked {m}") 
+                #     except ElementNotInteractableException:
+                #         print(f"Element Not Interactable Exception -- Clicking element m < 3 - 2")
+                #         continue
+                #     except TimeoutException:
+                #         print(f"Timeout Exception -- Clicking element m < 3")
+                #         continue
+                # elif m > 3:
+                #     try:
+                #         element = wait.until(EC.element_to_be_clickable((By.XPATH, f'/html[1]/body[1]/main[1]/div[1]/div[2]/div[2]/div[1]/ol[1]/li[{m}]/div[1]/div[1]/div[1]/label[1]')))
+                #         element = element.find_element(By.XPATH, f'/html[1]/body[1]/main[1]/div[1]/div[2]/div[2]/div[1]/ol[1]/li[{m}]/div[1]/div[1]/div[1]/label[1]')
+                #         # element = driver.find_element("xpath", f'/html[1]/body[1]/main[1]/div[1]/div[2]/div[2]/div[1]/ol[1]/li[{m}]/div[1]/div[1]/div[1]/label[1]')
+                #         # driver.execute_script("arguments[0].scrollIntoView();", element)
+                #         driver.execute_script("arguments[0].click();", element)
+                #         print(f"Clicked {m}")
+                #     except (ElementNotInteractableException,NoSuchElementException):
+                #         print(f"Element Not Interactable Exception -- Clicking element m > 3")
+                #         continue
+                #     except TimeoutException:
+                #         print(f"Timeout Exception -- Clicking element m > 3")
+                #         continue
+                try:
+                    element = wait.until(EC.element_to_be_clickable((By.XPATH, f'/html[1]/body[1]/main[1]/div[1]/div[2]/div[2]/div[1]/ol[1]/li[{m}]/div[1]/div[1]/div[1]/label[1]')))
+                    element = element.find_element(By.XPATH, f'/html[1]/body[1]/main[1]/div[1]/div[2]/div[2]/div[1]/ol[1]/li[{m}]/div[1]/div[1]/div[1]/label[1]')
+                    # element = driver.find_element("xpath", f'/html[1]/body[1]/main[1]/div[1]/div[2]/div[2]/div[1]/ol[1]/li[{m}]/div[1]/div[1]/div[1]/label[1]')
+                    # driver.execute_script("arguments[0].scrollIntoView();", element)
+                    driver.execute_script("arguments[0].click();", element)
+                    print(f"Clicked {m}")
+                except (ElementNotInteractableException,NoSuchElementException):
+                    print(f"Element Not Interactable Exception -- m_company")
+                    continue
+                except TimeoutException:
+                    print(f"Timeout Exception -- m_company")
+                    continue                
+            
         # If company & position exist, save profile into the folder
         if len(companys_list) > 0:
             save_button = wait.until(EC.element_to_be_clickable((By.XPATH, "//button[@aria-label='Save all selected leads to a custom list.']")))
             save_button.click()
-            not_found.to_csv(f'C:\\Users\\VRLab\\Downloads\\Auto-Sales-Navigator-main\\Auto-Sales-Navigator-main\\COMPANY_NOT_FOUND\\Not_Found_List_Company_5k_10k_2.csv', index=False)
+            not_found.to_csv(f'C:\\Users\\VRLab\\Downloads\\Auto-Sales-Navigator-main\\Auto-Sales-Navigator-main\\COMPANY_NOT_FOUND\\{save_csv_name}', index=False)
 
             # Find the parent element that contains the list of <li> elements
             save_list = wait.until(EC.presence_of_element_located((By.XPATH, '/html/body/main/div[1]/div[2]/div[1]/div[2]/div/div[3]/div/div/ul/li[2]/ul')))
@@ -278,7 +296,7 @@ for x in range(len(dfcompany)):
         driver.back()                                      # Go to the back of the page
     
 
-not_found.to_csv(f'C:\\Users\\VRLab\\Downloads\\Auto-Sales-Navigator-main\\Auto-Sales-Navigator-main\\COMPANY_NOT_FOUND\\Not_Found_List_Company_5k_10k_2.csv', index=False)
+not_found.to_csv(f'C:\\Users\\VRLab\\Downloads\\Auto-Sales-Navigator-main\\Auto-Sales-Navigator-main\\COMPANY_NOT_FOUND\\{save_csv_name}', index=False)
 #Get pos
 
 
