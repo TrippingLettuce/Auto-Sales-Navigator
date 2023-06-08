@@ -74,8 +74,8 @@ save_csv_name = 'Not_Found_List_company_25k_50k_2.csv'
 
 # Click the search bar and type company name
 # Get each company name For loop
-# for x in range(len(dfcompany)):
-for x in range(1):
+for x in range(len(dfcompany)):
+# for x in range(1):
     print(dfcompany[x])                 # print- company name
     temp_company = dfcompany[x]
     #Define the list for company name
