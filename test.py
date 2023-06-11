@@ -282,19 +282,3 @@ for x in range(len(dfcompany)):
         
 
 not_found.to_csv(f'COMPANY_NOT_FOUND/Not_Found_List_Company_200k-up.csv', index=False)      #! change the name as well
-
-#Get pos
-
-
-# ADD MORE (Look at prevoius CSV to find)
-
-# ---------------------------------------------------------------------------------------------------------------- #
-## Task Required
-# 1) Auto Navigation for Sales Nav tab [x]
-# 2) Scroll through the page and grab profile [x]
-# 3) Compare correct company with required position [x]
-#   - May require to find out right company name
-# 4) Press check mark for people who will save [ ]
-#   - Scroll down problem occurred (06/01/23 00:07)
-# 5) Save people correspond to right folder [ ]
-# ---------------------------------------------------------------------------------------------------------------- #
