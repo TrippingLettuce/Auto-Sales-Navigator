@@ -1,7 +1,21 @@
+
+
+
+
+
+
+folder_list = ['NA']                      
+file_path = "/home/lettuce/WorkCode/SalesNavigator/linkedin_from_excel/company_result/NA.csv"
+save_csv = '/home/lettuce/WorkCode/SalesNavigator/linkedin_from_excel/COMPANY_NOT_FOUND'                             
+
+
+
 # ---------------------------------------------------------------------------------------------------------------- #
 ## Python default import packages.
 # Colorama module: pip install colorama
 # from colorama import init, Fore, Style  # Do not work on MacOS and Linux   #! Uncomment if you are using it.
+
+#aasf
 
 # Python default import.
 from datetime import datetime as dt
@@ -53,8 +67,7 @@ wait.until(EC.presence_of_element_located((By.XPATH, "//input[@placeholder='Sear
 ## Company Data Import
 # Read CSV file (Make sure it is right csv)
 current_dir = os.getcwd()                                                           # Get the current directory
-file_path = current_dir + "/company_result/company_25k_50k_200data.csv"                     #! Chagne File name Depends on the company list
-# file_path = "/home/lettuce/WorkCode/SalesNavigator/linkedin_from_excel/company_result/company_100_500.csv"
+#file_path = current_dir + "/company_result/company_25k_50k_200data.csv"                     #! Chagne File name Depends on the company list
 fulldf = pd.read_csv(file_path)
 dfcompany = fulldf["Company"]
 
@@ -63,8 +76,6 @@ not_found = pd.DataFrame(columns=['Name','Email','Company','Domain'])
 
 
 # save_list folder name
-folder_list = ['25k-50k']                           #! always make more capacity then expectation.
-save_csv = 'company_25k_50k.csv'                                #! always make more capacity then expectation.
 
 
 # ---------------------------------------------------------------------------------------------------------------- #
@@ -210,7 +221,7 @@ for x in range(len(dfcompany)):
         if len(companys_list) > 0:
             save_button = wait.until(EC.element_to_be_clickable((By.XPATH, "//button[@aria-label='Save all selected leads to a custom list.']")))
             save_button.click()
-            not_found.to_csv(f'COMPANY_NOT_FOUND/{save_csv}', index=False)
+            not_found.to_csv(f'{save_csv}', index=False)
 
             # Find the parent element that contains the list of <li> elements
             save_list = wait.until(EC.presence_of_element_located((By.XPATH, '/html/body/main/div[1]/div[2]/div[1]/div[2]/div/div[3]/div/div/ul/li[2]/ul')))
@@ -268,7 +279,7 @@ for x in range(len(dfcompany)):
     
 
 # save the not found list to csv file
-not_found.to_csv(f'COMPANY_NOT_FOUND/{save_csv}', index=False)      #! change the name as well
+not_found.to_csv(f'{save_csv}', index=False)      #! change the name as well
 # ---------------------------------------------------------------------------------------------------------------- #
 ## Task Required
 # 1) Auto Navigation for Sales Nav tab [x]

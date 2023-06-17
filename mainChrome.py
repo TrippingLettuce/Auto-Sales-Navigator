@@ -1,3 +1,11 @@
+
+
+folder_list = ['25k-50k 1.0', '25k-50k 2.0', '25k-50k 3.0']                          
+file_path = "C:\\Users\\VRLab\\Downloads\\Auto-Sales-Navigator-main\\Auto-Sales-Navigator-main\\company_result\\company_25k_50k_nonexist.csv"
+save_csv_name = 'Not_Found_List_company_25k_50k_2.csv'
+
+
+
 # ---------------------------------------------------------------------------------------------------------------- #
 ## Python default import packages.
 # Colorama module: pip install colorama
@@ -56,7 +64,6 @@ wait.until(EC.presence_of_element_located((By.XPATH, "//input[@placeholder='Sear
 # Read CSV file (Make sure it is right csv)
 # current_dir = os.getcwd()                                                           # Get the current directory
 # file_path = current_dir + "/company_result/company_5k_10k_nonexist.csv"                     #! Chagne File name Depends on the company list
-file_path = "C:\\Users\\VRLab\\Downloads\\Auto-Sales-Navigator-main\\Auto-Sales-Navigator-main\\company_result\\company_25k_50k_nonexist.csv"
 
 fulldf = pd.read_csv(file_path)
 dfcompany = fulldf["Company"]
@@ -65,8 +72,7 @@ dfcompany = fulldf["Company"]
 not_found = pd.DataFrame(columns=['Name','Email','Company','Domain'])
 
 # save_list folder name
-folder_list = ['25k-50k 1.0', '25k-50k 2.0', '25k-50k 3.0']                           #! always make more capacity then expectation.
-save_csv_name = 'Not_Found_List_company_25k_50k_2.csv'
+
 # ---------------------------------------------------------------------------------------------------------------- #
 
 ## Change the li[index] for tracking
@@ -234,7 +240,7 @@ for x in range(len(dfcompany)):
         if len(companys_list) > 0:
             save_button = wait.until(EC.element_to_be_clickable((By.XPATH, "//button[@aria-label='Save all selected leads to a custom list.']")))
             save_button.click()
-            not_found.to_csv(f'C:\\Users\\VRLab\\Downloads\\Auto-Sales-Navigator-main\\Auto-Sales-Navigator-main\\COMPANY_NOT_FOUND\\{save_csv_name}', index=False)
+            not_found.to_csv(f'{save_csv_name}', index=False)
 
             # Find the parent element that contains the list of <li> elements
             save_list = wait.until(EC.presence_of_element_located((By.XPATH, '/html/body/main/div[1]/div[2]/div[1]/div[2]/div/div[3]/div/div/ul/li[2]/ul')))
@@ -296,7 +302,7 @@ for x in range(len(dfcompany)):
         driver.back()                                      # Go to the back of the page
     
 
-not_found.to_csv(f'C:\\Users\\VRLab\\Downloads\\Auto-Sales-Navigator-main\\Auto-Sales-Navigator-main\\COMPANY_NOT_FOUND\\{save_csv_name}', index=False)
+not_found.to_csv(f'{save_csv_name}', index=False)
 #Get pos
 
 
