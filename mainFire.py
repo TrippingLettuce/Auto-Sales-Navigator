@@ -1,9 +1,4 @@
 
-
-
-
-
-
 folder_list = ['NA']                      
 file_path = "/home/lettuce/WorkCode/SalesNavigator/linkedin_from_excel/company_result/NA.csv"
 save_csv = '/home/lettuce/WorkCode/SalesNavigator/linkedin_from_excel/COMPANY_NOT_FOUND'                             
@@ -54,8 +49,9 @@ driver.maximize_window()
 wait = WDW(driver, 10)                                                              # Define Wait
 
 driver.get('https://www.linkedin.com/checkpoint/lg/sign-in-another-account')        # Go to LinkedIn website
-driver.find_element(By.ID, 'username').send_keys('Noah.wolfe3@gcu.edu')             # Type ID & Password
-driver.find_element(By.ID, 'password').send_keys('Canyon1949!')
+### Sales Navigator ID and Password Goes here.
+driver.find_element(By.ID, 'username').send_keys('user_ID')             # Type ID & Password
+driver.find_element(By.ID, 'password').send_keys('user_Password')
 # ---------------------------------------------------------------------------------------------------------------- #
 ## Sign in button click
 driver.find_element(By.XPATH, "//button[normalize-space()='Sign in']").click()      # Button Click
