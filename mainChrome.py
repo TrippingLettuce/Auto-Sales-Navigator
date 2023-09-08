@@ -1,8 +1,7 @@
-
-
-folder_list = ['25k-50k 1.0', '25k-50k 2.0', '25k-50k 3.0']                          
-file_path = "C:\\Users\\VRLab\\Downloads\\Auto-Sales-Navigator-main\\Auto-Sales-Navigator-main\\company_result\\company_25k_50k_nonexist.csv"
-save_csv_name = 'Not_Found_List_company_25k_50k_2.csv'
+# File Path is designated from the User.
+folder_list = ['NA']                      
+file_path = "/home/lettuce/WorkCode/SalesNavigator/linkedin_from_excel/company_result/NA.csv"
+save_csv = '/home/lettuce/WorkCode/SalesNavigator/linkedin_from_excel/COMPANY_NOT_FOUND'                 
 
 
 
