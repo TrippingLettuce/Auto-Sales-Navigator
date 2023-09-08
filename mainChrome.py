@@ -50,8 +50,9 @@ driver.maximize_window()
 wait = WDW(driver, 10)                                                              # Define Wait
 
 driver.get('https://www.linkedin.com/checkpoint/lg/sign-in-another-account')        # Go to LinkedIn website
-driver.find_element(By.ID, 'username').send_keys('Noah.wolfe3@gcu.edu')             # Type ID & Password
-driver.find_element(By.ID, 'password').send_keys('Canyon1949!')
+### User's own ID and Password is required
+driver.find_element(By.ID, 'username').send_keys('user_ID')             # Type ID & Password
+driver.find_element(By.ID, 'password').send_keys('user_Password')
 # ---------------------------------------------------------------------------------------------------------------- #
 ## Sign in button click
 driver.find_element(By.XPATH, "//button[normalize-space()='Sign in']").click()      # Button Click
