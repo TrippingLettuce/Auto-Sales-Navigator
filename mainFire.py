@@ -1,22 +1,9 @@
-
-
-
-
-
-
-folder_list = ['NA']                      
-file_path = "/home/lettuce/WorkCode/SalesNavigator/linkedin_from_excel/company_result/NA.csv"
-save_csv = '/home/lettuce/WorkCode/SalesNavigator/linkedin_from_excel/COMPANY_NOT_FOUND'                             
-
-
+save_csv = 'Not_Found_List.csv'
+#Places the not found list
 
 # ---------------------------------------------------------------------------------------------------------------- #
 ## Python default import packages.
 # Colorama module: pip install colorama
-# from colorama import init, Fore, Style  # Do not work on MacOS and Linux   #! Uncomment if you are using it.
-
-#aasf
-
 # Python default import.
 from datetime import datetime as dt
 from glob import glob
@@ -25,6 +12,13 @@ import os
 import time
 import pandas as pd
 import numpy as np
+import tkinter as tk
+from tkinter import simpledialog
+from startup import get_credentials_gui
+import current
+import tkinter as tk
+import threading
+
 # ---------------------------------------------------------------------------------------------------------------- #
 ## Applicable packages for automation
 # Selenium module imports: pip install selenium
@@ -39,7 +33,6 @@ from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.support.ui import WebDriverWait as WDW
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
-
 # Exception Packages
 from selenium.common.exceptions import NoSuchElementException, ElementNotInteractableException, TimeoutException
 # ---------------------------------------------------------------------------------------------------------------- #
@@ -48,16 +41,27 @@ options = webdriver.FirefoxOptions()
 options.accept_insecure_certs = True
 # options.add_argument('-headless')                                                   #! Comment out if you want to see the browser
 # ---------------------------------------------------------------------------------------------------------------- #
-## Create a new instance of Firefox WebDriver
+
+
+
+#Start Page
+email, password, folder_list, file_path, keyword = get_credentials_gui()
+print(email, password, folder_list, file_path,keyword)
+
+#WHERE CODE STARTS
+
+
+
+
+#Driver And Element Selection Page
 driver = webdriver.Firefox(service=FirefoxService(GeckoDriverManager().install()), options=options)     
 driver.maximize_window()
 wait = WDW(driver, 10)                                                              # Define Wait
-
 driver.get('https://www.linkedin.com/checkpoint/lg/sign-in-another-account')        # Go to LinkedIn website
-driver.find_element(By.ID, 'username').send_keys('Noah.wolfe3@gcu.edu')             # Type ID & Password
-driver.find_element(By.ID, 'password').send_keys('Canyon1949!')
+driver.find_element(By.ID, 'username').send_keys(email)             # Type ID & Password
+driver.find_element(By.ID, 'password').send_keys(password)
 # ---------------------------------------------------------------------------------------------------------------- #
-## Sign in button click
+# Sign in button click
 driver.find_element(By.XPATH, "//button[normalize-space()='Sign in']").click()      # Button Click
 time.sleep(15)
 driver.get('https://www.linkedin.com/sales/search/people')
@@ -67,18 +71,30 @@ wait.until(EC.presence_of_element_located((By.XPATH, "//input[@placeholder='Sear
 ## Company Data Import
 # Read CSV file (Make sure it is right csv)
 current_dir = os.getcwd()                                                           # Get the current directory
-#file_path = current_dir + "/company_result/company_25k_50k_200data.csv"                     #! Chagne File name Depends on the company list
 fulldf = pd.read_csv(file_path)
-dfcompany = fulldf["Company"]
+dfcompany = fulldf["Name"]
 
 # DataFrame to check not_found profile company list
-not_found = pd.DataFrame(columns=['Name','Email','Company','Domain'])
-
-
-# save_list folder name
-
-
+not_found = pd.DataFrame(columns=['Name','Domain'])
 # ---------------------------------------------------------------------------------------------------------------- #
+#Current UI Showing
+
+
+df_Ui = pd.read_csv(file_path )
+num_rows = len(df_Ui)
+
+#Intial UI display
+total_link = 0
+company_pos=0
+com_NF = 0
+company_name = "NAN"
+
+print("Company Name: " + company_name + 
+    "\nConnections Found: " + str(total_link) + 
+    "\nCurrent Folder: " + folder_list[0] + 
+    "\nPosition: " + str(company_pos) + "/" + str(num_rows) + 
+    " Companies Not Found: " + str(com_NF)+ "\n")
+
 ## Change the li[index] for tracking
 # //body/main[@role='main']/div/div/div/div/ol/li[Change This Index]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]
 
@@ -86,17 +102,25 @@ not_found = pd.DataFrame(columns=['Name','Email','Company','Domain'])
 # Get each company name For loop
 for x in range(len(dfcompany)):
     print(dfcompany[x])                 # print- company name
+    company_name = dfcompany[x]
     temp_company = dfcompany[x]
+    company_pos = company_pos + 1
     #Define the list for company name
     companys_list = []
     position_list = []
-
+    
+    print("Company Name: " + company_name + 
+        "\nConnections Found: " + str(total_link) + 
+        "\nCurrent Folder: " + folder_list[0] + 
+        "\nPosition: " + str(company_pos) + "/" + str(num_rows) + 
+        " Companies Not Found: " + str(com_NF)+ "\n")    
+    time.sleep(1)
     try:
         # Wait until the presence of Search Bar element. 
         wait.until(EC.presence_of_element_located((By.XPATH, "//input[@placeholder='Search keywords']"))).send_keys(temp_company, Keys.ENTER)      # Search bar click and type  
         # Wait until the profile element is presence
         text_obj = wait.until(EC.presence_of_element_located((By.XPATH, "//body/main[@role='main']/div/div/div/div/ol/li[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]")))
-        time.sleep(15)
+        time.sleep(1)
         
         # Scroll
             #Click Page
@@ -163,8 +187,6 @@ for x in range(len(dfcompany)):
                 # Check Title and Company List
         # title_list = ['Chairman of the Board','President & CEO', 'CEO', 'Co-Founder', 'Business Owner', 'Director Contract Manufacturing', 'Owner', 'COO', 'Principal Engineer', 'Founder', 'Sales Supervisor', 'Sales Closer', 'Sales Representative', 'Director of Operations', 'Principal', 'President of Operations', 'Chief Executive Officer', 'CTO', 'Business Development Lead', 'Marketing Executive', 'CEO', 'Chief Executive Officer', 'C.E.O.', 'Founder', 'Co founder', 'Cofounder', 'Director of Development', 'Business Development', 'Retail', 'ecommerce', 'Digital Marketing', 'CMO', 'Chief Marketing Officer', 'CTO', 'Chief Technology Officer', 'Director of Marketing', 'Software', 'Fundraising', 'Partner', 'Donor', 'President', 'Owner', 'Partnership', 'Marketing manager']
         # Define the keyword that we are searching from the position instead
-        keyword = ['ceo','president','lead','owner','engineer','senior','chief','partner','director','head','vp','evp','manager','advisor',
-                'development','officer','executive','retail','fundraising','cto','cmo','founder','coo','chairman','honor','cfo','sr']
 
         # If no company found from the search, add that company to dataframe to trackdown the list.
         if len(companys_list) == 0:
@@ -174,6 +196,7 @@ for x in range(len(dfcompany)):
             # Concatenate the original DataFrame with new row
             not_found = pd.concat([not_found, add_row], ignore_index=True)
             # print(not_found)
+            com_NF = com_NF + 1
 
         elif len(companys_list) < 3:
             # print("\n" + str(companys_list) + "\n")
@@ -200,7 +223,7 @@ for x in range(len(dfcompany)):
                 companys_list.pop(index)
                 position_list.pop(index)
             
-            print("\n" + str(companys_list) + "\n")
+            #print("\n" + str(companys_list) + "\n") COMPANY LIST DEBUG
         
             for m in companys_list:
                 try:
@@ -209,7 +232,10 @@ for x in range(len(dfcompany)):
                     # element = driver.find_element("xpath", f'/html[1]/body[1]/main[1]/div[1]/div[2]/div[2]/div[1]/ol[1]/li[{m}]/div[1]/div[1]/div[1]/label[1]')
                     # driver.execute_script("arguments[0].scrollIntoView();", element)
                     driver.execute_script("arguments[0].click();", element)
-                    print(f"Clicked {m}")
+                    #print(f"Clicked {m}") CLICK DEBUG
+                    
+                    total_link = total_link + 1 #Display add 1
+                    
                 except (ElementNotInteractableException,NoSuchElementException):
                     print(f"Element Not Interactable Exception -- m_company")
                     continue
@@ -236,6 +262,7 @@ for x in range(len(dfcompany)):
             # Loop through Folders
             for i in range(1, li_count + 1):
                 try:
+                    
                     # Target folder
                     target = save_list.find_element(By.XPATH, f'/html/body/main/div[1]/div[2]/div[1]/div[2]/div/div[3]/div/div/ul/li[2]/ul/li[{i}]/div/div/div[1]').text
                     # Number of profile listed on the folder
@@ -270,7 +297,7 @@ for x in range(len(dfcompany)):
 
             #! Export the not found list to csv file
             # not_found.to_csv(f'COMPANY_NOT_FOUND/Not_Found_List_Company_100_500_{count}.csv', index=False)
-
+        time.sleep(15)
         driver.back()                               # Go to the back of the page
 
     except TimeoutException:
@@ -280,12 +307,4 @@ for x in range(len(dfcompany)):
 
 # save the not found list to csv file
 not_found.to_csv(f'{save_csv}', index=False)      #! change the name as well
-# ---------------------------------------------------------------------------------------------------------------- #
-## Task Required
-# 1) Auto Navigation for Sales Nav tab [x]
-# 2) Scroll through the page and grab profile [x]
-# 3) Compare correct company with required position [x]
-#   - May require to find out right company name
-# 4) Press check mark for people who will save [x]
-# 5) Save people correspond to right folder [x]
 # ---------------------------------------------------------------------------------------------------------------- #

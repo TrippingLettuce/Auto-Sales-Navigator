@@ -1,7 +1,7 @@
 
 
 folder_list = ['25k-50k 1.0', '25k-50k 2.0', '25k-50k 3.0']                          
-file_path = "C:\\Users\\VRLab\\Downloads\\Auto-Sales-Navigator-main\\Auto-Sales-Navigator-main\\company_result\\company_25k_50k_nonexist.csv"
+file_path = "/home/lettuce/WorkCode/SalesNavigator/linkedin_from_excel/company_result/filtered_1k_5k.csv"
 save_csv_name = 'Not_Found_List_company_25k_50k_2.csv'
 
 
@@ -66,10 +66,10 @@ wait.until(EC.presence_of_element_located((By.XPATH, "//input[@placeholder='Sear
 # file_path = current_dir + "/company_result/company_5k_10k_nonexist.csv"                     #! Chagne File name Depends on the company list
 
 fulldf = pd.read_csv(file_path)
-dfcompany = fulldf["Company"]
+dfcompany = fulldf["Name"]
 
 # DataFrame to check not_found profile company list
-not_found = pd.DataFrame(columns=['Name','Email','Company','Domain'])
+not_found = pd.DataFrame(columns=['Name','Domain'])
 
 # save_list folder name
 
