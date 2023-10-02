@@ -82,8 +82,8 @@ def get_credentials_gui():
                 root.quit()
                 
         def set_default_mode(self):
-            self.email = "Noah.wolfe3@gcu.edu"
-            self.password = "heartland#1"
+            self.email = ""
+            self.password = ""
             self.file_path = "/home/lettuce/WorkCode/SalesNavigator/linkedin_from_excel/company_result/filtered_1k_5k.csv"
             self.folder_list = ["Test-1"]
             self.keyword = ['ceo','president','lead','owner','engineer','senior','chief','partner','director','head','vp','evp','manager','advisor','development','officer','executive','retail','fundraising','cto','cmo','founder','coo','chairman','honor','cfo','sr']
